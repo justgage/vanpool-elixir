@@ -1,0 +1,21 @@
+<h2>
+  <%= @van.name %>
+</h2>
+
+<p>
+<strong>Compacity:</strong>
+<%= @van.compacity %>
+</p>
+
+<p>
+<strong>Come:</strong>
+<%= @van.come %>
+</p>
+
+<p>
+<strong>Go:</strong>
+<%= @van.go %>
+</p>
+
+
+<%= link "Back", to: page_path(@conn, :index) %>

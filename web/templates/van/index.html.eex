@@ -1,0 +1,32 @@
+<h2>Listing vans</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Compacity</th>
+      <th>Come</th>
+      <th>Go</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for van <- @vans do %>
+    <tr>
+      <td><%= van.name %></td>
+      <td><%= van.compacity %></td>
+      <td><%= van.come %></td>
+      <td><%= van.go %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: van_path(@conn, :show, van), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: van_path(@conn, :edit, van), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: van_path(@conn, :delete, van), method: :delete, class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New van", to: van_path(@conn, :new) %>

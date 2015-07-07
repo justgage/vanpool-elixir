@@ -1,0 +1,12 @@
+<h2>Vans</h2>
+
+<%= for van <- @vans do %>
+  <h1> 
+    <%= link van.name, to: van_path(@conn, :show, van), class: "" %>
+  </h1>
+  <p>Compacity <%= van.compacity %></p>
+  <p>Come: <%= van.come %></p>
+  <p>Go: <%= van.go %></p>
+<% end %>
+
+

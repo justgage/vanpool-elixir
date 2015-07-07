@@ -1,0 +1,6 @@
+<h2>New van</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: van_path(@conn, :create) %>
+
+<%= link "Back", to: van_path(@conn, :index) %>
