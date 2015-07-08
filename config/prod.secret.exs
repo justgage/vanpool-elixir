@@ -10,6 +10,7 @@ config :vanpool, Vanpool.Endpoint,
 # Configure your database
 config :vanpool, Vanpool.Repo,
   adapter: Ecto.Adapters.Postgres,
+  url: { :system,  System.get_env("DATABASE_URL") },
   username: System.get_env("DATABASE_USERNAME"),
   password: System.get_env("DATABASE_PASSWORD"),
   database: System.get_env("DATABASE_NAME"),
