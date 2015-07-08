@@ -26,6 +26,6 @@ defmodule Vanpool.User do
   end
 
   def save_user(user, token) do
-
+    # save the token and avatar in a better way
   end
 end

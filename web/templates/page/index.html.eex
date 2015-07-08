@@ -4,6 +4,7 @@
     <%= link van.name, to: van_path(@conn, :show, van), class: "" %>
   <div class="pull-right btn-group" role="group" aria-label="...">
     <button type="button" class="btn btn-lg btn-default">In</button>
+    <button type="button" class="btn btn-lg btn-default">Round Trip</button>
     <button type="button" class="btn btn-lg btn-default">Out</button>
   </div>
   </h1>

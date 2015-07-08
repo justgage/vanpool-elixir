@@ -1,5 +1,4 @@
-import {Socket} from "phoenix"
-
+// import {Socket} from "phoenix"
 // let socket = new Socket("/ws")
 // socket.connect()
 // let chan = socket.chan("topic:subtopic", {})
@@ -8,6 +7,8 @@ import {Socket} from "phoenix"
 // })
 
 let App = {
+
+
 }
 
 export default App

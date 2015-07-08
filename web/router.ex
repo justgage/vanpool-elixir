@@ -7,11 +7,16 @@ defmodule Vanpool.Router do
     plug :fetch_session
     plug :fetch_flash
     plug :protect_from_forgery
-    plug :assign_current_user
+    plug :assign_env
   end
 
-  defp assign_current_user(conn, _) do
-    assign(conn, :current_user, get_session(conn, :current_user))
+  defp assign_env(conn, _) do
+    conn
+    |> assign(:avatar,   get_session(conn, :current_user))
+    |> assign(:current_user,   get_session(conn, :current_user))
+    |> assign(:user_id,        get_session(conn, :user_id))
+    |> assign(:user_real_name, get_session(conn, :user_real_name))
+    |> assign(:user_avatar, get_session(conn, :user_avatar))
   end
 
   pipeline :api do

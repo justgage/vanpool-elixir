@@ -17,11 +17,12 @@
       <div class="header">
         <div class="pull-right">
           <p> 
-          <%= link "@" <> @current_user, to: "https://instructure.slack.com/messages/@" <> @current_user %> 
+          <img src="<%= @user_avatar %> " alt="avatar"/>
+          <%= @user_real_name %> 
           ( <%= link "logout", to: auth_path(@conn, :logout) %> )
           </p>
         </div>
-        <h1><%= link "Vanpool Cordinator", to: page_path(@conn, :index) %></h1>
+        <h1><%= link "Vanpool Coordinator", to: page_path(@conn, :index) %></h1>
       </div>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>

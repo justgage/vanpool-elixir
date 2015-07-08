@@ -19,10 +19,8 @@ defmodule Vanpool.AuthController do
   def callback(conn, %{"code" => code}) do
     # Exchange an auth code for an access token
     token = SlackOAuth2.get_token!(code: code)
-
     # Request the user's data with the access token
-    %{"user" => user} = OAuth2.AccessToken.get!(token, ("/auth.test?token=" <> token.access_token))
-
+    %{"user" => user_name, "user_id" => user_id} = OAuth2.AccessToken.get!(token, ("/auth.test?token=" <> token.access_token))
     # Store the user in the session under `:current_user` and redirect to /.
     # In most cases, we'd probably just store the user's ID that can be used
     # to fetch from the database. In this case, since this example app has no
@@ -30,24 +28,36 @@ defmodule Vanpool.AuthController do
     #
     # If you need to make additional resource requests, you may want to store
     # the access token as well.
-    
-    Vanpool.User.save_user(user, token.access_token)
 
-    Logger.error("tokens?")
-    Logger.error(token.access_token)
-    Logger.error("user")
-    Logger.error(user)
+    %{"user" => user} = OAuth2.AccessToken.get!(token, ("/users.info?token=#{token.access_token}&user=#{user_id}"))
+
+    profile = user["profile"]
+    name = profile["real_name"]
+    avatar = profile["image_48"]
+
+    Vanpool.User.save_user(profile, token.access_token)
+
+    Logger.error("slack user info ------")
+    # Logger.error(user)
+    Logger.error(avatar)
+    Logger.error(name)
 
     conn
-    |> put_session(:current_user, user)
+    |> put_session(:user_id, user_id)
+    |> put_session(:current_user, user_name)
     |> put_session(:access_token, token.access_token)
+    |> put_session(:user_real_name, name)
+    |> put_session(:user_avatar, avatar)
     |> redirect(to: "/")
   end
 
   def logout(conn, _params) do
     conn
+    |> put_session(:user_id, nil)
     |> put_session(:current_user, nil)
     |> put_session(:access_token, nil)
+    |> put_session(:user_real_name, nil)
+    |> put_session(:user_avatar, nil)
     |> redirect(to: "/")
   end
 end

@@ -44,4 +44,5 @@ defmodule SlackOAuth2 do
     |> put_header("Accept", "application/json")
     |> AuthCode.get_token(params, headers)
   end
+
 end
