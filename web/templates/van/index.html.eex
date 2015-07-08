@@ -3,10 +3,11 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Compacity</th>
-      <th>Come</th>
-      <th>Go</th>
+      <th>Number</th>
+      <th>Capacity</th>
+      <th>Come time</th>
+      <th>Go time</th>
+      <th>Description</th>
 
       <th></th>
     </tr>
@@ -14,10 +15,11 @@
   <tbody>
 <%= for van <- @vans do %>
     <tr>
-      <td><%= van.name %></td>
-      <td><%= van.compacity %></td>
-      <td><%= van.come %></td>
-      <td><%= van.go %></td>
+      <td><%= van.number %></td>
+      <td><%= van.capacity %></td>
+      <td><%= van.come_time %></td>
+      <td><%= van.go_time %></td>
+      <td><%= van.description %></td>
 
       <td class="text-right">
         <%= link "Show", to: van_path(@conn, :show, van), class: "btn btn-default btn-xs" %>

@@ -2,15 +2,16 @@ defmodule Vanpool.Van do
   use Vanpool.Web, :model
 
   schema "vans" do
-    field :name, :string
-    field :compacity, :integer
-    field :come, :string
-    field :go, :string
+    field :number, :integer
+    field :capacity, :integer
+    field :come_time, :string
+    field :go_time, :string
+    field :description, :string
 
     timestamps
   end
 
-  @required_fields ~w(name compacity come go)
+  @required_fields ~w(number capacity come_time go_time description)
   @optional_fields ~w()
 
   @doc """

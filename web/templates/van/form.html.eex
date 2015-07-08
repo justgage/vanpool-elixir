@@ -11,23 +11,28 @@
   <% end %>
 
   <div class="form-group">
-    <%= label f, :name, "Name" %>
-    <%= text_input f, :name, class: "form-control" %>
+    <%= label f, :number, "Number" %>
+    <%= number_input f, :number, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= label f, :compacity, "Compacity" %>
-    <%= number_input f, :compacity, class: "form-control" %>
+    <%= label f, :capacity, "Capacity" %>
+    <%= number_input f, :capacity, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= label f, :come, "Come" %>
-    <%= text_input f, :come, class: "form-control" %>
+    <%= label f, :come_time, "Come time" %>
+    <%= text_input f, :come_time, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= label f, :go, "Go" %>
-    <%= text_input f, :go, class: "form-control" %>
+    <%= label f, :go_time, "Go time" %>
+    <%= text_input f, :go_time, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :description, "Description" %>
+    <%= text_input f, :description, class: "form-control" %>
   </div>
 
   <div class="form-group">

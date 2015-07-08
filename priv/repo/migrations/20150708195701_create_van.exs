@@ -3,10 +3,11 @@ defmodule Vanpool.Repo.Migrations.CreateVan do
 
   def change do
     create table(:vans) do
-      add :name, :string
-      add :compacity, :integer
-      add :come, :string
-      add :go, :string
+      add :number, :integer
+      add :capacity, :integer
+      add :come_time, :string
+      add :go_time, :string
+      add :description, :string
 
       timestamps
     end

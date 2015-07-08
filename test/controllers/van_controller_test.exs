@@ -2,7 +2,7 @@ defmodule Vanpool.VanControllerTest do
   use Vanpool.ConnCase
 
   alias Vanpool.Van
-  @valid_attrs %{come: "some content", compacity: 42, go: "some content", name: "some content"}
+  @valid_attrs %{capacity: 42, come_time: "some content", description: "some content", go_time: "some content", number: 42}
   @invalid_attrs %{}
 
   setup do

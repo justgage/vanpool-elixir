@@ -1,21 +1,32 @@
-<h2>
-  <%= @van.name %>
-</h2>
+<h2>Show van</h2>
 
-<p>
-<strong>Compacity:</strong>
-<%= @van.compacity %>
-</p>
+<ul>
 
-<p>
-<strong>Come:</strong>
-<%= @van.come %>
-</p>
+  <li>
+    <strong>Number:</strong>
+    <%= @van.number %>
+  </li>
 
-<p>
-<strong>Go:</strong>
-<%= @van.go %>
-</p>
+  <li>
+    <strong>Capacity:</strong>
+    <%= @van.capacity %>
+  </li>
 
+  <li>
+    <strong>Come time:</strong>
+    <%= @van.come_time %>
+  </li>
 
-<%= link "Back", to: page_path(@conn, :index) %>
+  <li>
+    <strong>Go time:</strong>
+    <%= @van.go_time %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @van.description %>
+  </li>
+
+</ul>
+
+<%= link "Back", to: van_path(@conn, :index) %>
