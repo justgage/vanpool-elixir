@@ -18,20 +18,20 @@ defmodule Vanpool.Router do
     plug :accepts, ["json"]
    end
 
-
-
   scope "/", Vanpool do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
     resources "/vans", VanController
     resources "/users", UserController
+    resources "/riding", RidingController
   end
 
   scope "/auth", Vanpool  do
     pipe_through :browser
     get "/", AuthController, :index
     get "/callback", AuthController, :callback
+    get "/logout", AuthController, :logout
   end
 
   # Other scopes may use custom stacks.

@@ -14,14 +14,19 @@ defmodule SlackOAuth2 do
       client_id: System.get_env("SLACK_CLIENT_ID"),
       client_secret: System.get_env("SLACK_CLIENT_SECRET"),
       redirect_uri: System.get_env("SLACK_REDIRECT_URI"),
-      site: "https://api.slack.com",
+      site: "https://slack.com/api",
       authorize_url: "https://slack.com/oauth/authorize",
-      token_url: "https://slack.com/api/oauth.access"
+      token_url: "https://slack.com/api/oauth.access",
     ])
   end
 
   def authorize_url!(params \\ []) do
-    OAuth2.Client.authorize_url!(new(), params)
+
+    # this doesn't work despite my frustration :<
+    params = params ++ [team: "T028ZAGUD"]
+
+    new()
+    |> OAuth2.Client.authorize_url!(params)
   end
 
   def get_token!(params \\ [], headers \\ []) do

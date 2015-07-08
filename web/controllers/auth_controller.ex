@@ -1,7 +1,6 @@
 defmodule Vanpool.AuthController do
+  require Logger
   use Vanpool.Web, :controller
-
-  plug :action
 
   @doc """
   This action is reached via `/auth` and redirects to the OAuth2 provider
@@ -22,7 +21,7 @@ defmodule Vanpool.AuthController do
     token = SlackOAuth2.get_token!(code: code)
 
     # Request the user's data with the access token
-    user = OAuth2.AccessToken.get!(token, "/user")
+    %{"user" => user} = OAuth2.AccessToken.get!(token, ("/auth.test?token=" <> token.access_token))
 
     # Store the user in the session under `:current_user` and redirect to /.
     # In most cases, we'd probably just store the user's ID that can be used
@@ -31,9 +30,24 @@ defmodule Vanpool.AuthController do
     #
     # If you need to make additional resource requests, you may want to store
     # the access token as well.
+    
+    Vanpool.User.save_user(user, token.access_token)
+
+    Logger.error("tokens?")
+    Logger.error(token.access_token)
+    Logger.error("user")
+    Logger.error(user)
+
     conn
     |> put_session(:current_user, user)
     |> put_session(:access_token, token.access_token)
+    |> redirect(to: "/")
+  end
+
+  def logout(conn, _params) do
+    conn
+    |> put_session(:current_user, nil)
+    |> put_session(:access_token, nil)
     |> redirect(to: "/")
   end
 end

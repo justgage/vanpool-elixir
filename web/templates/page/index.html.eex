@@ -1,8 +1,11 @@
-<h2>Vans</h2>
 
 <%= for van <- @vans do %>
   <h1> 
     <%= link van.name, to: van_path(@conn, :show, van), class: "" %>
+  <div class="pull-right btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-lg btn-default">In</button>
+    <button type="button" class="btn btn-lg btn-default">Out</button>
+  </div>
   </h1>
   <p>Compacity <%= van.compacity %></p>
   <p>Come: <%= van.come %></p>

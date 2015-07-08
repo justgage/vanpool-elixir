@@ -1,17 +1,17 @@
-defmodule Vanpool.User do
+defmodule Vanpool.Riding do
   use Vanpool.Web, :model
 
-  schema "users" do
-    field :name, :string
-    field :email, :string
-    field :bio, :string
-    field :slack_handle, :string
-    field :access_token, :string
+  schema "riding" do
+    field :dir, :string
+    field :userid, :string
+    field :vanid, :integer
+    field :time, Ecto.Time
+    field :date, Ecto.Date
 
     timestamps
   end
 
-  @required_fields ~w(name email bio slack_handle access_token)
+  @required_fields ~w(dir userid vanid time date)
   @optional_fields ~w()
 
   @doc """
@@ -23,9 +23,5 @@ defmodule Vanpool.User do
   def changeset(model, params \\ :empty) do
     model
     |> cast(params, @required_fields, @optional_fields)
-  end
-
-  def save_user(user, token) do
-
   end
 end

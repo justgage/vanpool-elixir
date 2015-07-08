@@ -1,0 +1,34 @@
+<h2>Listing riding</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Dir</th>
+      <th>Userid</th>
+      <th>Vanid</th>
+      <th>Time</th>
+      <th>Date</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for riding <- @riding do %>
+    <tr>
+      <td><%= riding.dir %></td>
+      <td><%= riding.userid %></td>
+      <td><%= riding.vanid %></td>
+      <td><%= riding.time %></td>
+      <td><%= riding.date %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: riding_path(@conn, :show, riding), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: riding_path(@conn, :edit, riding), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: riding_path(@conn, :delete, riding), method: :delete, class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New riding", to: riding_path(@conn, :new) %>

@@ -1,0 +1,32 @@
+<h2>Show riding</h2>
+
+<ul>
+
+  <li>
+    <strong>Dir:</strong>
+    <%= @riding.dir %>
+  </li>
+
+  <li>
+    <strong>Userid:</strong>
+    <%= @riding.userid %>
+  </li>
+
+  <li>
+    <strong>Vanid:</strong>
+    <%= @riding.vanid %>
+  </li>
+
+  <li>
+    <strong>Time:</strong>
+    <%= @riding.time %>
+  </li>
+
+  <li>
+    <strong>Date:</strong>
+    <%= @riding.date %>
+  </li>
+
+</ul>
+
+<%= link "Back", to: riding_path(@conn, :index) %>

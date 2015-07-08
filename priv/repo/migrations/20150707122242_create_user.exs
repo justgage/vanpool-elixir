@@ -7,6 +7,7 @@ defmodule Vanpool.Repo.Migrations.CreateUser do
       add :email, :string
       add :bio, :string
       add :slack_handle, :string
+      add :access_token, :string
 
       timestamps
     end

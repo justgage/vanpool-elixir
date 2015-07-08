@@ -12,13 +12,15 @@
   </head>
 
   <body>
+    <%= if @current_user do %>
     <div class="container" role="main">
       <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li><%= link "Login", to: auth_path(@conn, :index) %></li>
-          <li><%= get_session(@conn, :current_user) %></li>
-          <li><%= get_session(@conn, :access_token) %></li>
-        </ul>
+        <div class="pull-right">
+          <p> 
+          <%= link "@" <> @current_user, to: "https://instructure.slack.com/messages/@" <> @current_user %> 
+          ( <%= link "logout", to: auth_path(@conn, :logout) %> )
+          </p>
+        </div>
         <h1><%= link "Vanpool Cordinator", to: page_path(@conn, :index) %></h1>
       </div>
 
@@ -32,5 +34,12 @@
     
     <script>require("web/static/js/app")</script>
     
+  <% else %>
+    <div class="text-center">
+      <h1>Welcome to Vanpool!</h1>
+      <h2>Please login with Slack to continue</h2>
+      <a class="btn btn-lg btn-default" href="<%= auth_path(@conn, :index) %>" target="_blank">Login with:<img src="<%= static_path(@conn, "/images/slack.png") %>" alt="Slack"/></a>
+    </div>
+  <% end %>
   </body>
 </html>
