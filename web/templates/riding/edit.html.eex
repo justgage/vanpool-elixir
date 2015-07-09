@@ -1,6 +1,0 @@
-<h2>Edit riding</h2>
-
-<%= render "form.html", changeset: @changeset,
-                        action: riding_path(@conn, :update, @riding) %>
-
-<%= link "Back", to: riding_path(@conn, :index) %>

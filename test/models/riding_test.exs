@@ -3,7 +3,7 @@ defmodule Vanpool.RidingTest do
 
   alias Vanpool.Riding
 
-  @valid_attrs %{date: %{day: 17, month: 4, year: 2010}, dir: "some content", time: %{hour: 14, min: 0}, userid: "some content", vanid: 42}
+  @valid_attrs %{date: %{day: 17, month: 4, year: 2010}, dir: "some content", keys: true, userid: "some content", vanid: 42}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

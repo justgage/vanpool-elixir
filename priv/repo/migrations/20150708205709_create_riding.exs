@@ -6,8 +6,8 @@ defmodule Vanpool.Repo.Migrations.CreateRiding do
       add :dir, :string
       add :userid, :string
       add :vanid, :integer
-      add :time, :time
       add :date, :date
+      add :keys, :boolean, default: false
 
       timestamps
     end

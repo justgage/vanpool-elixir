@@ -29,9 +29,16 @@ defmodule Vanpool.VanController do
     end
   end
 
+  # def show(conn, %{"id" => id, "date" => date}) do
+  #   van = Repo.get!(Van, id)
+  #   render(conn, "show.html", van: van, date: date)
+  # end
   def show(conn, %{"id" => id}) do
     van = Repo.get!(Van, id)
-    render(conn, "show.html", van: van)
+    {date, _} = :calendar.local_time
+    date = Ecto.Date.from_erl date
+
+    render(conn, "show.html", van: van, date: date)
   end
 
   def edit(conn, %{"id" => id}) do

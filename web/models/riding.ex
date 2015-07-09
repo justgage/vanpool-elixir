@@ -5,13 +5,13 @@ defmodule Vanpool.Riding do
     field :dir, :string
     field :userid, :string
     field :vanid, :integer
-    field :time, Ecto.Time
     field :date, Ecto.Date
+    field :keys, :boolean, default: false
 
     timestamps
   end
 
-  @required_fields ~w(dir userid vanid time date)
+  @required_fields ~w(dir userid vanid date keys)
   @optional_fields ~w()
 
   @doc """

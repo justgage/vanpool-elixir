@@ -7,37 +7,35 @@ defmodule Vanpool.UserController do
 
   def index(conn, _params) do
     users = Repo.all(User)
-    render(conn, "index.html", users: users)
-  end
-
-  def new(conn, _params) do
-    changeset = User.changeset(%User{})
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "index.json", users: users)
   end
 
   def create(conn, %{"user" => user_params}) do
-    changeset = User.changeset(%User{}, user_params)
 
-    if changeset.valid? do
-      Repo.insert!(changeset)
+    %{"userid" => userid } = user_params
 
-      conn
-      |> put_flash(:info, "User created successfully.")
-      |> redirect(to: user_path(conn, :index))
-    else
-      render(conn, "new.html", changeset: changeset)
+    ex_user = existing_user(userid)
+
+    if ex_user do
+      update(conn, %{"id" => ex_user.id, "user" => user_params})
+    else # create it
+
+      changeset = User.changeset(%User{}, user_params)
+
+      if changeset.valid? do
+        user = Repo.insert!(changeset)
+        # render(conn, "show.json", user: user)
+      else
+        # conn
+        # |> put_status(:unprocessable_entity)
+        # |> render(Vanpool.ChangesetView, "error.json", changeset: changeset)
+      end
     end
   end
 
   def show(conn, %{"id" => id}) do
     user = Repo.get!(User, id)
-    render(conn, "show.html", user: user)
-  end
-
-  def edit(conn, %{"id" => id}) do
-    user = Repo.get!(User, id)
-    changeset = User.changeset(user)
-    render(conn, "edit.html", user: user, changeset: changeset)
+    render conn, "show.json", user: user
   end
 
   def update(conn, %{"id" => id, "user" => user_params}) do
@@ -45,22 +43,29 @@ defmodule Vanpool.UserController do
     changeset = User.changeset(user, user_params)
 
     if changeset.valid? do
-      Repo.update!(changeset)
-
-      conn
-      |> put_flash(:info, "User updated successfully.")
-      |> redirect(to: user_path(conn, :index))
+      user = Repo.update!(changeset)
+      # render(conn, "show.json", user: user)
     else
-      render(conn, "edit.html", user: user, changeset: changeset)
+      # conn
+      # |> put_status(:unprocessable_entity)
+      # |> render(Vanpool.ChangesetView, "error.json", changeset: changeset)
     end
   end
 
   def delete(conn, %{"id" => id}) do
     user = Repo.get!(User, id)
-    Repo.delete!(user)
 
-    conn
-    |> put_flash(:info, "User deleted successfully.")
-    |> redirect(to: user_path(conn, :index))
+    user = Repo.delete!(user)
+    render(conn, "show.json", user: user)
+  end
+
+  def existing_user(userid) do
+    import Ecto.Query
+
+    query = from u in User,
+          where: u.userid == ^userid
+
+    Repo.all(query)
+    |> List.first
   end
 end

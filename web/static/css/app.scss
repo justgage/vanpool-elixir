@@ -10,8 +10,13 @@
 body, form, ul, table {
   margin-top: 20px;
   margin-bottom: 20px;
+  background-color: #F8F7E1;
+  font-family: "nimbus-sans",sans-serif;
+  color: #2F270A;
 }
-
+a {
+  color: #2F270A;
+}
 /* Phoenix flash messages */
 .alert:empty { display: none; }
 
@@ -21,8 +26,14 @@ form.link, form.button {
 }
 
 /* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
+.Header__ApplicationName {
+  text-transform: uppercase;
+  color: #333;
+  font-size: 18px;
+  & a:hover {
+    color: #333;
+    text-decoration: underline;
+  }
 }
 .logo {
   width: 519px;
@@ -71,10 +82,91 @@ form.link, form.button {
   }
   /* Space out the masthead */
   .header {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
   }
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
   }
+}
+.VanBlock__Details {
+  padding: 15px 25px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  -webkit-align-items: center;
+}
+//status of the van pool
+.status-is-good {
+  background-color: #34D0CE;
+}
+.status-is-pending {
+  background-color: #F9C34F;
+}
+.status-is-critical {
+  background-color: #F45A63;
+}
+.VanBlock__Details--left {
+  flex: 1;
+  -webkit-flex: 1;
+  margin: auto;
+}
+.VanBlock__Details--right {
+  flex: 1;
+  -webkit-flex: 1;
+  margin: auto;
+}
+.VanBlock__Details--action {
+  flex: 1 100%;
+  -webkit-flex: 1 100%;
+  margin: auto;
+}
+.VanBlock__Name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2F270A;
+}
+.VanDeparture {
+  float: left;
+}
+.VanDriver--status {
+  clear: both;
+  display: block;
+  text-transform: uppercase;
+}
+.Btn__CheckIn {
+  color: #fff;
+  text-transform: uppercase;
+  &:hover {
+    // color: ;
+    text-decoration: none;
+  }
+}
+//global button class
+.Btn__Svg {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  width: 33%;
+  padding: 0px;
+  text-decoration: none;
+  text-align: center;
+  color: #2F270A;
+}
+.Btn__Svg--morning {
+  @extend .Btn__Svg;
+  background: url(/images/Morning.svg) no-repeat center;
+  background-size: contain;
+}
+.Btn__Svg--roundtrip {
+  @extend .Btn__Svg;
+  background: url(/images/Roundtrip.svg) no-repeat center;
+  background-size: contain;
+}
+.Btn__Svg--afternoon {
+  @extend .Btn__Svg;
+  background: url(/images/Afternoon.svg) no-repeat center;
+  background-size: contain;
 }

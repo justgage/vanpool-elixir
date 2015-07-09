@@ -1,4 +1,5 @@
 defmodule Vanpool.RidingController do
+  require Logger
   use Vanpool.Web, :controller
 
   alias Vanpool.Riding
@@ -7,37 +8,45 @@ defmodule Vanpool.RidingController do
 
   def index(conn, _params) do
     riding = Repo.all(Riding)
-    render(conn, "index.html", riding: riding)
+    render(conn, "index.json", riding: riding)
   end
 
-  def new(conn, _params) do
-    changeset = Riding.changeset(%Riding{})
-    render(conn, "new.html", changeset: changeset)
+  defp self_rider(userid, date) do
+    import Ecto.Query
+
+    query = from r in Riding,
+          where: r.userid == ^userid
+
+    query = from r in query,
+          where: r.date == ^date
+
+    Repo.all(query)
+    |> List.first
   end
 
   def create(conn, %{"riding" => riding_params}) do
-    changeset = Riding.changeset(%Riding{}, riding_params)
+    
+    me = self_rider(riding_params["userid"], riding_params["date"])
 
-    if changeset.valid? do
-      Repo.insert!(changeset)
+    if me != nil do # already registered
+      update(conn, %{"id" => me.id, "riding" => riding_params})
+    else # not registered yet
+      changeset = Riding.changeset(%Riding{}, riding_params)
 
-      conn
-      |> put_flash(:info, "Riding created successfully.")
-      |> redirect(to: riding_path(conn, :index))
-    else
-      render(conn, "new.html", changeset: changeset)
+      if changeset.valid? do
+        riding = Repo.insert!(changeset)
+        render(conn, "show.json", riding: riding)
+      else
+        conn
+        |> put_status(:unprocessable_entity)
+        |> render(Vanpool.ChangesetView, "error.json", changeset: changeset)
+      end
     end
   end
 
   def show(conn, %{"id" => id}) do
     riding = Repo.get!(Riding, id)
-    render(conn, "show.html", riding: riding)
-  end
-
-  def edit(conn, %{"id" => id}) do
-    riding = Repo.get!(Riding, id)
-    changeset = Riding.changeset(riding)
-    render(conn, "edit.html", riding: riding, changeset: changeset)
+    render conn, "show.json", riding: riding
   end
 
   def update(conn, %{"id" => id, "riding" => riding_params}) do
@@ -45,22 +54,19 @@ defmodule Vanpool.RidingController do
     changeset = Riding.changeset(riding, riding_params)
 
     if changeset.valid? do
-      Repo.update!(changeset)
-
-      conn
-      |> put_flash(:info, "Riding updated successfully.")
-      |> redirect(to: riding_path(conn, :index))
+      riding = Repo.update!(changeset)
+      render(conn, "show.json", riding: riding)
     else
-      render(conn, "edit.html", riding: riding, changeset: changeset)
+      conn
+      |> put_status(:unprocessable_entity)
+      |> render(Vanpool.ChangesetView, "error.json", changeset: changeset)
     end
   end
 
   def delete(conn, %{"id" => id}) do
     riding = Repo.get!(Riding, id)
-    Repo.delete!(riding)
 
-    conn
-    |> put_flash(:info, "Riding deleted successfully.")
-    |> redirect(to: riding_path(conn, :index))
+    riding = Repo.delete!(riding)
+    render(conn, "show.json", riding: riding)
   end
 end

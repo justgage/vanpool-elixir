@@ -1,17 +1,19 @@
 defmodule Vanpool.User do
   use Vanpool.Web, :model
+  
 
   schema "users" do
-    field :name, :string
-    field :email, :string
-    field :bio, :string
+    field :userid, :string
+    field :avatar_url, :string
+    field :real_name, :string
     field :slack_handle, :string
-    field :access_token, :string
+    field :phone, :string
+    field :email, :string
 
     timestamps
   end
 
-  @required_fields ~w(name email bio slack_handle access_token)
+  @required_fields ~w(userid avatar_url real_name slack_handle phone email)
   @optional_fields ~w()
 
   @doc """
@@ -25,7 +27,4 @@ defmodule Vanpool.User do
     |> cast(params, @required_fields, @optional_fields)
   end
 
-  def save_user(user, token) do
-    # save the token and avatar in a better way
-  end
 end

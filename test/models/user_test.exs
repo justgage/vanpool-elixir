@@ -3,7 +3,7 @@ defmodule Vanpool.UserTest do
 
   alias Vanpool.User
 
-  @valid_attrs %{bio: "some content", email: "some content", name: "some content", slack_handle: "some content"}
+  @valid_attrs %{avatar_url: "some content", email: "some content", phone: "some content", real_name: "some content", slack_handle: "some content", userid: "some content"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

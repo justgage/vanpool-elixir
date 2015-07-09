@@ -29,7 +29,7 @@ defmodule SlackOAuth2 do
     |> OAuth2.Client.authorize_url!(params)
   end
 
-  def get_token!(params \\ [], headers \\ []) do
+  def get_token!(params \\ [], _headers \\ []) do
     OAuth2.Client.get_token!(new(), params)
   end
 
@@ -43,6 +43,10 @@ defmodule SlackOAuth2 do
     client
     |> put_header("Accept", "application/json")
     |> AuthCode.get_token(params, headers)
+  end
+
+  def is_authed?(conn) do
+    Plug.Conn.get_session(conn, :user_id) != nil
   end
 
 end

@@ -5,10 +5,19 @@
 // chan.join().receive("ok", chan => {
 //   console.log("Success!")
 // })
+"use strict";
 
-let App = {
 
-
+function save_local(user_id, token) {
+  localStorage.setItem("user_id", user_id);
+  localStorage.setItem("token", token);
 }
 
-export default App
+var App = {
+  init: function init() {
+    $('body').append('App initialized.');
+  }
+};
+
+
+module.exports = App;

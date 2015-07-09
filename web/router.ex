@@ -12,14 +12,18 @@ defmodule Vanpool.Router do
 
   defp assign_env(conn, _) do
     conn
-    |> assign(:avatar,   get_session(conn, :current_user))
+    |> assign(:avatar,         get_session(conn, :current_user))
     |> assign(:current_user,   get_session(conn, :current_user))
     |> assign(:user_id,        get_session(conn, :user_id))
     |> assign(:user_real_name, get_session(conn, :user_real_name))
-    |> assign(:user_avatar, get_session(conn, :user_avatar))
+    |> assign(:user_avatar,    get_session(conn, :user_avatar))
+    |> assign(:access_token,          get_session(conn, :access_token))
+    # the actual token object
+    |> assign(:token,          get_session(conn, :token))
   end
 
   pipeline :api do
+    plug :fetch_session
     plug :accepts, ["json"]
    end
 
@@ -28,8 +32,6 @@ defmodule Vanpool.Router do
 
     get "/", PageController, :index
     resources "/vans", VanController
-    resources "/users", UserController
-    resources "/riding", RidingController
   end
 
   scope "/auth", Vanpool  do
@@ -40,7 +42,9 @@ defmodule Vanpool.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", Vanpool do
-  #   pipe_through :api
-  # end
+  scope "/api", Vanpool do
+    pipe_through :api
+    resources "/riding", RidingController
+    resources "/users", UserController
+  end
 end

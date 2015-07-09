@@ -3,7 +3,8 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Number</th>
+      <th>ID (database)</th>
+      <th>Van Number</th>
       <th>Capacity</th>
       <th>Come time</th>
       <th>Go time</th>
@@ -15,6 +16,7 @@
   <tbody>
 <%= for van <- @vans do %>
     <tr>
+      <td><%= van.id %></td>
       <td><%= van.number %></td>
       <td><%= van.capacity %></td>
       <td><%= van.come_time %></td>

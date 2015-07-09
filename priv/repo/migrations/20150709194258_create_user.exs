@@ -3,11 +3,12 @@ defmodule Vanpool.Repo.Migrations.CreateUser do
 
   def change do
     create table(:users) do
-      add :name, :string
-      add :email, :string
-      add :bio, :string
+      add :userid, :string
+      add :avatar_url, :string
+      add :real_name, :string
       add :slack_handle, :string
-      add :access_token, :string
+      add :phone, :string
+      add :email, :string
 
       timestamps
     end
