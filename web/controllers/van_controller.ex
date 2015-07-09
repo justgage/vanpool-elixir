@@ -35,6 +35,8 @@ defmodule Vanpool.VanController do
   # end
   def show(conn, %{"id" => id}) do
     van = Repo.get!(Van, id)
+
+    # how to get today :P
     {date, _} = :calendar.local_time
     date = Ecto.Date.from_erl date
 

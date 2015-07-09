@@ -16,14 +16,12 @@
     <%= if @current_user do %>
     <div class="container" role="main">
       <div class="header">
-        <div class="pull-right">
+        <div class="pull-left">
           <p>
           <img src="<%= @user_avatar %> " alt="avatar"/>
-          <%= @user_real_name %>
-          ( <%= link "logout", to: auth_path(@conn, :logout) %> )
           </p>
         </div>
-        <h1 class="Header__ApplicationName"><%= link "Panda Express", to: page_path(@conn, :index) %></h1>
+        <h1 class="text-center Header__ApplicationName"><%= link "Panda Express", to: page_path(@conn, :index) %></h1>
       </div>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
@@ -44,7 +42,7 @@
     <div class="text-center">
       <h1>Welcome to Vanpool!</h1>
       <h2>Please login with Slack to continue</h2>
-      <a class="btn btn-lg btn-default" href="<%= auth_path(@conn, :index) %>" target="_blank">Login with:<img src="<%= static_path(@conn, "/images/slack.png") %>" alt="Slack"/></a>
+      <a class="btn btn-lg btn-default" href="<%= auth_path(@conn, :index) %>">Login with:<img src="<%= static_path(@conn, "/images/slack.png") %>" alt="Slack"/></a>
     </div>
   <% end %>
   </body>

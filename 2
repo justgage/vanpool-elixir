@@ -1,0 +1,35 @@
+<% 
+self_rider = Vanpool.VanView.riding_for_user(@user_id, @date) 
+%>
+<%= for van <- @vans do %>
+  <div class="row VanBlock__Details status-is-good">
+    <div class="VanBlock__Details--left">
+      <h1 class="VanBlock__Name">
+        <%= link "Van #{van.id}", to: van_path(@conn, :show, van), class: "" %>
+      </h1>
+      <p class="VanDeparture"><%= van.come_time %> |&nbsp;</p>
+      <p class="VanDeparture"><%= van.go_time %></p>
+      <p class="VanDriver--status">Has Driver</p>
+    </div>
+    <div class="VanBlock__Details--right">
+      <div class="pull-right" aria-label="...">
+      <%= if van.id == self_rider.vanid do %>
+        <img src="<%= @user_avatar %>" alt="Your riding"/>
+      <% end %>
+        <button type="button" class="btn btn-lg btn-link Btn__CheckIn">Check In</button>
+      </div>
+      
+    </div>
+  </div>
+<% end %>
+
+  <div class="row VanBlock__Details status-is-pending">
+    <div class="VanBlock__Details--action">
+      <div class="pull-right btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-lg Btn__Svg--morning"><span class="sr-only">In</span></button>
+        <button type="button" class="btn btn-lg Btn__Svg--roundtrip"><span class="sr-only">Round Trip</span></button>
+        <button type="button" class="btn btn-lg Btn__Svg--afternoon"><span class="sr-only">Out</span></button>
+      </div>
+    </div>
+  </div>
+

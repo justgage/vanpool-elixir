@@ -170,3 +170,19 @@ form.link, form.button {
   background: url(/images/Afternoon.svg) no-repeat center;
   background-size: contain;
 }
+
+#sticky-bottom-bar {
+  position: fixed;
+  bottom: -75px;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  background-color: wheat;
+  padding: 20px;
+  margin: 0;
+  transition: all 0.1s ease;
+}
+
+.sticky-up {
+  bottom: -1px !important;
+}

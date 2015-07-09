@@ -1,18 +1,34 @@
 <%= link "< Back", to: page_path(@conn, :index), class: "btn btn-default" %>
-<% riders = get_riders(@van.id, @date) %>
+<% 
+riders = get_riders(@van.id, @date) 
+self_rider = riding_for_user(@user_id, @date) 
+%>
+
+<div id="sticky-bottom-bar">
+  Do you have keys? 
+  <button class="btn btn-default" onclick="check_in_key(true)">Yes</button> 
+  <button class="btn btn-default" onclick="check_in_key(false)">No</button>
+</div>
 
 <h1>
-  <%= "Van #{@van.id}"%>
-</h1>
-<div class="pull-right btn-group" role="group" aria-label="...">
+<div class="pull-right btn-group <%= button_class(@van.id, self_rider) %>" role="group" aria-label="...">
   <button id="in" type="button" class="btn btn-lg btn-default" onclick="check_in('in')">In</button>
   <button id="round" type="button" class="btn btn-lg btn-default" onclick="check_in('round')">Round Trip</button>
   <button id="out" type="button" class="btn btn-lg btn-default" onclick="check_in('out')">Out</button>
 </div>
+  <%= "Van #{@van.id}"%>
+</h1>
+
   </h1>
   <p>Capacity: <%= length(riders) %>/<%= @van.capacity %> </p>
   <p>Come: <%= @van.come_time %></p>
   <p>Go: <%= @van.go_time %></p>
+  <%= if van_driver? @van.id, @date do %>
+    GOING
+  <% else %>
+    NOT GOING
+  <% end %>
+  
 
 <%= for rider_touple <- riders do %>
   <% {user, rider} = rider_touple %>
@@ -24,6 +40,10 @@
     </div>
 
     <p> Going: <%= rider.dir %> </p>
+    <%= if rider.keys do %>
+      <strong>Driver</strong>
+    <% end %>
+    
   </div>
 <% end %>
 
