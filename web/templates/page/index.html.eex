@@ -27,14 +27,16 @@ self_rider = Vanpool.VanView.riding_for_user(@user_id, @date)
       </div>
     </div>
 
-<!-- this area will need to be loaded within the div row VanBlock__Details status upon click of check in -->
     <div class="row VanBlock__Buttons status-<%= Vanpool.VanView.van_status_class(van.id, @date) %>">
       <div class="btn-group VanBlock__Buttons--action" role="group" aria-label="...">
         <button id="in" type="button" class="btn btn-lg Btn__Svg--morning" onclick="check_in('<%= van.id %>', 'in')"><span class="Btn__Svg-Text">Morning</span></button>
         <button id="round" type="button" class="btn btn-lg Btn__Svg--roundtrip" onclick="check_in('<%= van.id %>','round')"><span class="Btn__Svg-Text">Roundtrip</span></button>
         <button id="out" type="button" class="btn btn-lg Btn__Svg--afternoon" onclick="check_in('<%= van.id %>', 'out')"><span class="Btn__Svg-Text">Afternoon</span></button>
       </div>
-</div>
+    </div>
+
+<!-- this area will need to be loaded within the div row VanBlock__Details status upon click of check in -->
+
 <script type="text/javascript" charset="utf-8">
 var userid = "<%= @user_id %>";
 var path = "<%= riding_path(@conn, :create) %>";

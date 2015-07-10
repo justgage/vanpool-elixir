@@ -22,12 +22,8 @@
     <%= if @current_user do %>
     <div class="container" role="main">
       <div class="row header">
-        <div class="pull-left">
-          <p>
-          <img src="<%= @user_avatar %> " alt="avatar"/>
-          </p>
-        </div>
-        <h1 class="text-center Header__ApplicationName"><%= link "Panda Express", to: page_path(@conn, :index) %></h1>
+        <img src="<%= @user_avatar %> " alt="avatar" class="pull-right"/>
+        <h1 class="Header__ApplicationName"><%= link "Panda Express", to: page_path(@conn, :index) %></h1>
       </div>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>

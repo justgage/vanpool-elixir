@@ -90,7 +90,7 @@ form.link, form.button {
   }
 }
 .VanBlock__Details {
-  padding: 15px 25px;
+  padding: 5px 25px;
   margin-bottom: 16px;
   border-radius: 8px;
   display: flex;
@@ -129,6 +129,7 @@ form.link, form.button {
   -webkit-align-items: flex-end;
   justify-content: space-around;
   -webkit-justify-content: space-around;
+  min-height: 125px;
 }
 .VanBlock__Buttons--action {
   flex: 1;

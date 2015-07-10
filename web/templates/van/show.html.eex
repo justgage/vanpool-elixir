@@ -19,29 +19,21 @@ self_rider = riding_for_user(@user_id, @date)
       <% end %>
     </p>
   </div>
-
+<!-- could use this div to add mileage button in the future -->
   <div class="VanBlock__Details--right">
-    <div class="pull-right btn-group <%= button_class(@van.id, self_rider) %>" role="group" aria-label="...">
-      <button id="in" type="button" class="btn btn-lg btn-default" onclick="check_in('in')">In</button>
-      <button id="round" type="button" class="btn btn-lg btn-default" onclick="check_in('round')">Round Trip</button>
-      <button id="out" type="button" class="btn btn-lg btn-default" onclick="check_in('out')">Out</button>
-    </div>
   </div>
 </div>
 
-<%= for rider_touple <- riders do %>
-  <% {user, rider} = rider_touple %>
-  <div>
-    <%# see https://api.slack.com/types/user for the shape of this %>
-    <div class="row VanRiders__Container">
-      <img class="VanRiders__Avatar" src="<%= user.avatar_url %>" alt="<%= user.real_name %>" />
-      <p class="VanRiders__Name"><%= user.real_name %></p>
-      <p class="VanRiders__Status"> Going: <%= rider.dir %> </p>
-      <%= if rider.keys do %>
-        <strong>Driver</strong>
-      <% end %>
-    </div>
-
-  </div>
-<% end %>
+<div class="row VanRiders__Container">
+  <%= for rider_touple <- riders do %>
+    <% {user, rider} = rider_touple %>
+      <%# see https://api.slack.com/types/user for the shape of this %>
+        <img class="VanRiders__Avatar" src="<%= user.avatar_url %>" alt="<%= user.real_name %>" />
+        <p class="VanRiders__Name"> <%= user.real_name %> </p>
+        <p class="VanRiders__Status"> Going: <%= rider.dir %> </p>
+        <%= if rider.keys do %>
+          <strong>Driver</strong>
+        <% end %>
+  <% end %>
+</div>
 
