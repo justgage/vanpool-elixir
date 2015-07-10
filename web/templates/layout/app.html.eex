@@ -12,6 +12,12 @@
   </head>
 
   <body>
+    <div id="sticky-bottom-bar">
+      Do you have keys?
+      <button class="btn btn-default" onclick="check_in_key(true)">Yes</button>
+      <button class="btn btn-default" onclick="check_in_key(false)">No</button>
+    </div>
+
     <script src="<%= static_path(@conn, "/js/moment.min.js") %>"></script>
     <%= if @current_user do %>
     <div class="container" role="main">

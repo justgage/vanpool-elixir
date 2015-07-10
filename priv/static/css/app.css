@@ -5369,21 +5369,22 @@ form.link, form.button {
   text-align: center;
   border: 1px solid; }
 
-/* line 217, stdin */
+/* line 218, stdin */
 #sticky-bottom-bar {
   position: fixed;
-  bottom: -75px;
+  top: -75px;
   left: 0;
   text-align: center;
   width: 100%;
   background-color: wheat;
   padding: 20px;
   margin: 0;
-  transition: all 0.1s ease; }
+  transition: all 0.1s ease;
+  z-index: 1000; }
 
-/* line 229, stdin */
+/* line 231, stdin */
 .sticky-up {
-  bottom: -1px !important; }
+  top: -1px !important; }
 
 
 /*# sourceMappingURL=app.css.map*/

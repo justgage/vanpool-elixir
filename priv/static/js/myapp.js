@@ -1,6 +1,7 @@
-var check_in = function (dir, keys) {
+var check_in = function (van, dir, keys) {
   $("#sticky-bottom-bar").toggleClass("sticky-up", true);
   window.dir = dir;
+  window.vanid = van;
 }
 
 var check_in_disable = function () {

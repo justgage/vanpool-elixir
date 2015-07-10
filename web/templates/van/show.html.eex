@@ -4,11 +4,6 @@ riders = get_riders(@van.id, @date)
 self_rider = riding_for_user(@user_id, @date)
 %>
 
-<div id="sticky-bottom-bar">
-  Do you have keys?
-  <button class="btn btn-default" onclick="check_in_key(true)">Yes</button>
-  <button class="btn btn-default" onclick="check_in_key(false)">No</button>
-</div>
 
 <div class="row VanBlock__Details status-is-critical">
   <div class="VanBlock__Details--left">
@@ -50,9 +45,3 @@ self_rider = riding_for_user(@user_id, @date)
   </div>
 <% end %>
 
-<script type="text/javascript" charset="utf-8">
-var vanid = <%= @van.id %>;
-var userid = "<%= @user_id %>";
-var path = "<%= riding_path(@conn, :create) %>";
-var date = moment().format("YYYY-MM-DD");
-</script>

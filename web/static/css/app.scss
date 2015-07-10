@@ -214,9 +214,10 @@ form.link, form.button {
   text-align: center;
   border: 1px solid
 }
+
 #sticky-bottom-bar {
   position: fixed;
-  bottom: -75px;
+  top: -75px;
   left: 0;
   text-align: center;
   width: 100%;
@@ -224,8 +225,9 @@ form.link, form.button {
   padding: 20px;
   margin: 0;
   transition: all 0.1s ease;
+  z-index: 1000;
 }
 
 .sticky-up {
-  bottom: -1px !important;
+ top: -1px !important;
 }
