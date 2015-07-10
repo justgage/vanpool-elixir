@@ -1,5 +1,5 @@
-<% 
-self_rider = Vanpool.VanView.riding_for_user(@user_id, @date) 
+<%
+self_rider = Vanpool.VanView.riding_for_user(@user_id, @date)
 %>
 <%= for van <- @vans do %>
 
@@ -11,7 +11,7 @@ self_rider = Vanpool.VanView.riding_for_user(@user_id, @date)
         <p class="VanDeparture"><%= van.come_time %> |&nbsp;</p>
         <p class="VanDeparture"><%= van.go_time %></p>
         <%= if Vanpool.VanView.van_driver? van.id, @date do %>
-          <p class="VanDriver--status">HAS Driver</p>
+          <p class="VanDriver--status">Has Driver</p>
         <% else %>
           <p class="VanDriver--status">No Driver</p>
         <% end %>
@@ -24,10 +24,8 @@ self_rider = Vanpool.VanView.riding_for_user(@user_id, @date)
             <button type="button" class="btn btn-lg btn-link Btn__CheckIn">Check In</button>
           <% end %>
         </div>
-
       </div>
     </div>
-<% end %>
 
   <div class="row VanBlock__Details status-is-pending">
     <div class="VanBlock__Details--action">
@@ -38,4 +36,8 @@ self_rider = Vanpool.VanView.riding_for_user(@user_id, @date)
       </div>
     </div>
   </div>
+
+<% end %>
+
+
 
