@@ -29,7 +29,7 @@ config :logger, :console, format: "[$level] $message\n"
 # Configure your database
 config :vanpool, Vanpool.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "gpeterson",
+  username: System.get_env("DATABASE_USERNAME"),
   password: "postgres",
   database: "vanpool_dev",
   size: 10 # The amount of database connections in the pool
