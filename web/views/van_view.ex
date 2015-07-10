@@ -16,9 +16,9 @@ defmodule Vanpool.VanView do
   def riding_for_user(nil, date), do: nil
   def riding_for_user(userid, date) do
     query = from r in Riding,
-            where: r.userid == ^userid
+    where: r.userid == ^userid
 
-    Repo.all(query) |> List.first
+    Repo.all(query)
   end
 
   def button_class(vanid, self_rider) do
@@ -41,13 +41,9 @@ defmodule Vanpool.VanView do
 
   def van_driver?(vanid, date) do
     query = from r in Riding,
-            where: r.keys == true
-
-    query = from r in query,
-            where: r.date == ^date
-
-    query = from r in query,
-            where: r.vanid == ^vanid
+    where: r.keys == true,
+    where: r.date == ^date,
+    where: r.vanid == ^vanid
 
     length(Repo.all(query)) > 0
   end
@@ -57,10 +53,11 @@ defmodule Vanpool.VanView do
   def get_riders(vanid, date) do
 
     query = from r in Riding,
-            where: r.date == ^date and r.vanid == ^vanid,
-            join: u in User, on: r.userid == u.userid,
-            select: {u, r}
+    where: r.date == ^date and r.vanid == ^vanid,
+    join: u in User, on: r.userid == u.userid,
+    select: {u, r}
 
     riders = Repo.all(query)
   end
+
 end

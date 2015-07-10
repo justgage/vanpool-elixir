@@ -36,3 +36,12 @@ var hideButton = function(id, state) {
   $(id).toggleClass("show-buttons", state);
   $(id).toggleClass("hide-buttons", !state);
 }
+
+function clear_ride(date) {
+  var promise = $.post(window.path, info);
+  data = {
+    userid : window.userid
+  };
+  promise.done(function (data) { location.reload(); })
+  promise.fail(function (data) { alert("Sorry there was an error on the server ⨂_⨂"); })
+}
