@@ -13,9 +13,9 @@
 
   <body>
     <div id="sticky-bottom-bar">
-      Do you have keys?
-      <button class="btn btn-default" onclick="check_in_key(true)">Yes</button>
-      <button class="btn btn-default" onclick="check_in_key(false)">No</button>
+      <span class="StickyBar__Label">Do you have keys?</span>
+      <button class="btn btn-link" onclick="check_in_key(true)">YES</button> |
+      <button class="btn btn-link" onclick="check_in_key(false)">NO</button>
     </div>
 
     <script src="<%= static_path(@conn, "/js/moment.min.js") %>"></script>

@@ -35,8 +35,6 @@ self_rider = Vanpool.VanView.riding_for_user(@user_id, @date)
       </div>
     </div>
 
-<!-- this area will need to be loaded within the div row VanBlock__Details status upon click of check in -->
-
 <script type="text/javascript" charset="utf-8">
 var userid = "<%= @user_id %>";
 var path = "<%= riding_path(@conn, :create) %>";

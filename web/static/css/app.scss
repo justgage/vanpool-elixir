@@ -218,17 +218,28 @@ form.link, form.button {
 
 #sticky-bottom-bar {
   position: fixed;
-  top: -75px;
+  display: block;
+  top: -100px;
   left: 0;
+  text-transform: uppercase;
   text-align: center;
+  color: #2F270A;
   width: 100%;
-  background-color: wheat;
+  background-color: #F9C34F;
   padding: 20px;
   margin: 0;
   transition: all 0.1s ease;
   z-index: 1000;
 }
-
 .sticky-up {
  top: -1px !important;
+}
+.StickyBar__Label {
+  margin-right: 15px;
+}
+.btn-link {
+  color: #2F270A;
+  &:hover {
+    color: #fff;
+  }
 }

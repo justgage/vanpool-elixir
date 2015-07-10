@@ -5373,19 +5373,33 @@ form.link, form.button {
 /* line 219, stdin */
 #sticky-bottom-bar {
   position: fixed;
-  top: -75px;
+  display: block;
+  top: -100px;
   left: 0;
+  text-transform: uppercase;
   text-align: center;
+  color: #2F270A;
   width: 100%;
-  background-color: wheat;
+  background-color: #F9C34F;
   padding: 20px;
   margin: 0;
   transition: all 0.1s ease;
   z-index: 1000; }
 
-/* line 232, stdin */
+/* line 234, stdin */
 .sticky-up {
   top: -1px !important; }
+
+/* line 237, stdin */
+.StickyBar__Label {
+  margin-right: 15px; }
+
+/* line 240, stdin */
+.btn-link {
+  color: #2F270A; }
+  /* line 242, stdin */
+  .btn-link:hover {
+    color: #fff; }
 
 
 /*# sourceMappingURL=app.css.map*/
