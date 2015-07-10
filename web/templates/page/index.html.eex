@@ -3,7 +3,9 @@ self_rider = Vanpool.VanView.riding_for_user(@user_id, @date)
 %>
 <%= for van <- @vans do %>
 
-  <div class="row VanBlock__Details status-<%= Vanpool.VanView.van_status_class(van.id, @date) %>">
+  <div id="van-line-<%= van.id %>" class="hide-buttons">
+    
+  <div  class="row VanBlock__Details status-<%= Vanpool.VanView.van_status_class(van.id, @date) %>">
       <div class="VanBlock__Details--left">
         <h1 class="VanBlock__Name">
           <%= link "Van #{van.id}", to: van_path(@conn, :show, van), class: "" %>
@@ -17,7 +19,7 @@ self_rider = Vanpool.VanView.riding_for_user(@user_id, @date)
         <% end %>
       </div>
       <div class="VanBlock__Details--right">
-        <div class="pull-right" aria-label="...">
+        <div onclick="hideButton('#van-line-<%= van.id %>', true)" class="pull-right" aria-label="...">
           <%= if self_rider != nil && van.id == self_rider.vanid do %>
             <button type="button" class="btn btn-lg VanBlock__Details--rider-morning"><span class="Btn__Svg-Text">Morning</span></button>
           <% else %>
@@ -34,6 +36,7 @@ self_rider = Vanpool.VanView.riding_for_user(@user_id, @date)
         <button id="out" type="button" class="btn btn-lg Btn__Svg--afternoon" onclick="check_in('<%= van.id %>', 'out')"><span class="Btn__Svg-Text">Afternoon</span></button>
       </div>
     </div>
+  </div>
 
 <script type="text/javascript" charset="utf-8">
 var userid = "<%= @user_id %>";

@@ -169,7 +169,7 @@ form.link, form.button {
   -webkit-align-items: flex-end;
   justify-content: space-around;
   -webkit-justify-content: space-around;
-  min-height: 145px;
+  min-height: 152px;
 }
 .VanBlock__Buttons--action {
   flex: 1;
@@ -285,9 +285,30 @@ form.link, form.button {
 .StickyBar__Label {
   margin-right: 15px;
 }
+
 #sticky-bottom-bar > .btn-link {
   color: #2F270A;
   &:hover {
     color: #fff;
+  }
+}
+
+.hide-buttons {
+  .VanBlock__Details {
+    display:show;
+  }
+
+  .VanBlock__Buttons { 
+    display:none; 
+  }
+}
+
+.show-buttons {
+  .VanBlock__Details {
+    display:none;
+  }
+
+  .VanBlock__Buttons { 
+    display:hide; 
   }
 }

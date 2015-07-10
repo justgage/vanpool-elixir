@@ -57,15 +57,10 @@ defmodule Vanpool.VanView do
   def get_riders(vanid, date) do
 
     query = from r in Riding,
-            where: r.date == ^date
-
-    query = from r in query,
-            where: r.vanid == ^vanid
-
-    query = from r in query,
+            where: r.date == ^date and r.vanid == ^vanid,
             join: u in User, on: r.userid == u.userid,
             select: {u, r}
 
-    Repo.all(query)
+    riders = Repo.all(query)
   end
 end

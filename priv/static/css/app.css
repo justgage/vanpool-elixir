@@ -5323,7 +5323,7 @@ form.link, form.button {
   -webkit-align-items: flex-end;
   justify-content: space-around;
   -webkit-justify-content: space-around;
-  min-height: 145px; }
+  min-height: 152px; }
 
 /* line 174, stdin */
 .VanBlock__Buttons--action {
@@ -5448,12 +5448,26 @@ form.link, form.button {
 .StickyBar__Label {
   margin-right: 15px; }
 
-/* line 288, stdin */
+/* line 289, stdin */
 #sticky-bottom-bar > .btn-link {
   color: #2F270A; }
-  /* line 290, stdin */
+  /* line 291, stdin */
   #sticky-bottom-bar > .btn-link:hover {
     color: #fff; }
+
+/* line 297, stdin */
+.hide-buttons .VanBlock__Details {
+  display: show; }
+/* line 301, stdin */
+.hide-buttons .VanBlock__Buttons {
+  display: none; }
+
+/* line 307, stdin */
+.show-buttons .VanBlock__Details {
+  display: none; }
+/* line 311, stdin */
+.show-buttons .VanBlock__Buttons {
+  display: hide; }
 
 
 /*# sourceMappingURL=app.css.map*/
