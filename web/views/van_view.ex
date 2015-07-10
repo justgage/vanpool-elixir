@@ -35,7 +35,7 @@ defmodule Vanpool.VanView do
     if driver do
       "is-good"
     else
-      "is-pending"
+      "is-critical"
     end
   end
 

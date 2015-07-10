@@ -25,7 +25,7 @@ defmodule Vanpool.RidingController do
 
     query = from r in Riding,
       where: r.userid == ^userid,
-      where: r.dir == ^dir,
+      where: r.dir == ^dir or r.dir == "round",
       where: r.date == ^date
 
     Repo.all(query)
@@ -37,12 +37,22 @@ defmodule Vanpool.RidingController do
   end
 
   def create(conn, %{"riding" => riding_params}) do
+    case riding_params["dir"] do
+      "round" ->
+        create_one(conn, %{"riding" => Map.put(riding_params, "dir", "in")})
+        create_one(conn, %{"riding" => Map.put(riding_params, "dir", "out")})
+      x ->
+      create_one(conn, %{"riding" => riding_params})
+    end
+  end
 
+  defp create_one(conn, %{"riding" => riding_params}) do
     # delete the other ridings to replace them
     # so that round trips will replace the two individal ones
     # and the two indivdual (in and out) will
     # not mess with eachother
     self_riders(riding_params["dir"], riding_params["userid"], riding_params["date"])
+
     |> Enum.each(fn self_rider ->
         delete(conn, %{
           "id" => self_rider.id,
@@ -50,6 +60,7 @@ defmodule Vanpool.RidingController do
         }) 
       end)
 
+    dir = riding_params["dir"]
     changeset = Riding.changeset(%Riding{}, riding_params)
 
     if changeset.valid? do
