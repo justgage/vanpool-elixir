@@ -21,7 +21,7 @@ a:hover, a:focus {
   color: #2F270A;
   text-decoration: underline;
 }
-.btn:active {
+.btn:active, {
   box-shadow: none;
 }
 .btn:focus {
@@ -169,7 +169,7 @@ form.link, form.button {
   -webkit-align-items: flex-end;
   justify-content: space-around;
   -webkit-justify-content: space-around;
-  min-height: 125px;
+  min-height: 145px;
 }
 .VanBlock__Buttons--action {
   flex: 1;
@@ -207,24 +207,32 @@ form.link, form.button {
   display: inline-block;
   cursor: pointer;
   width: 33%;
-  padding: 25px 0 0 0;
+  padding: 25px 0 10px 0;
   text-decoration: none;
   text-align: center;
   color: #2F270A;
+  &:hover {
+    border-radius: 0;
+    cursor: pointer;
+    box-shadow: inset 0px -5px 0px #F8F7E1;
+  }
 }
-.Btn__Svg--morning {
+.Btn__Svg--morning,
+.Btn__Svg--morning:active {
   @extend .Btn__Svg;
   background: url(/images/Morning.svg) no-repeat top center;
   background-size: 50px;
   padding-top: 50px;
 }
-.Btn__Svg--roundtrip {
+.Btn__Svg--roundtrip,
+.Btn__Svg--roundtrip:active {
   @extend .Btn__Svg;
   background: url(/images/Roundtrip.svg) no-repeat top center;
   background-size: 50px;
   padding-top: 50px;
 }
-.Btn__Svg--afternoon {
+.Btn__Svg--afternoon,
+.Btn__Svg--afternoon:active {
   @extend .Btn__Svg;
   background: url(/images/Afternoon.svg) no-repeat top center;
   background-size: 50px;
