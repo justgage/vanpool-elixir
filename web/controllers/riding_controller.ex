@@ -25,7 +25,7 @@ defmodule Vanpool.RidingController do
   end
 
   def create(conn, %{"riding" => riding_params}) do
-    
+
     me = self_rider(riding_params["userid"], riding_params["date"])
 
     if me != nil do # already registered
@@ -65,7 +65,6 @@ defmodule Vanpool.RidingController do
 
   def delete(conn, %{"id" => id}) do
     riding = Repo.get!(Riding, id)
-
     riding = Repo.delete!(riding)
     render(conn, "show.json", riding: riding)
   end

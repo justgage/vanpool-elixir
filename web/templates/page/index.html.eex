@@ -3,14 +3,18 @@ self_rider = Vanpool.VanView.riding_for_user(@user_id, @date)
 %>
 <%= for van <- @vans do %>
 
-    <div class="row VanBlock__Details status-is-good">
+  <div class="row VanBlock__Details status-<%= Vanpool.VanView.van_status_class(van.id, @date) %>">
       <div class="VanBlock__Details--left">
         <h1 class="VanBlock__Name">
           <%= link "Van #{van.id}", to: van_path(@conn, :show, van), class: "" %>
         </h1>
         <p class="VanDeparture"><%= van.come_time %> |&nbsp;</p>
         <p class="VanDeparture"><%= van.go_time %></p>
-        <p class="VanDriver--status">Has Driver</p>
+        <%= if Vanpool.VanView.van_driver? van.id, @date do %>
+          <p class="VanDriver--status">HAS Driver</p>
+        <% else %>
+          <p class="VanDriver--status">No Driver</p>
+        <% end %>
       </div>
       <div class="VanBlock__Details--right">
         <div class="pull-right" aria-label="...">

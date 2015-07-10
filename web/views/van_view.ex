@@ -30,12 +30,25 @@ defmodule Vanpool.VanView do
     end
   end
 
+  def van_status_class(vanid, date) do
+    driver = van_driver?(vanid, date)
+
+    if driver do
+      "is-good"
+    else
+      "is-pending"
+    end
+  end
+
   def van_driver?(vanid, date) do
     query = from r in Riding,
             where: r.keys == true
 
     query = from r in query,
             where: r.date == ^date
+
+    query = from r in query,
+            where: r.vanid == ^vanid
 
     length(Repo.all(query)) > 0
   end
