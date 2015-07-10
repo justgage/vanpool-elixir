@@ -11,6 +11,8 @@ var check_in_disable = function () {
 var check_in_key = function (keys) {
 
   keys = !!keys;
+
+
   var info = {
     "riding" : {
       "vanid" : vanid,
@@ -21,10 +23,11 @@ var check_in_key = function (keys) {
     },
   };
 
+  console.log(JSON.stringify(info));
 
   check_in_disable();
 
-  var promise = $.post(path, info);
+  var promise = $.post(window.path, info);
   promise.done(function (data) { location.reload(); })
   promise.fail(function (data) { alert("Sorry there was an error on the server ⨂_⨂"); })
 }

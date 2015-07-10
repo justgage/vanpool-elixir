@@ -19,7 +19,7 @@
     </div>
 
     <script src="<%= static_path(@conn, "/js/moment.min.js") %>"></script>
-    <%= if @current_user do %>
+    <%= if @current_user != nil and @user_id != nil and @token != nil do %>
     <div class="container" role="main">
       <div class="row header">
         <img src="<%= @user_avatar %> " alt="avatar" class="pull-right"/>

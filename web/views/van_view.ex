@@ -13,11 +13,12 @@ defmodule Vanpool.VanView do
     |> Enum.filter(fn(ride) -> ride.vanid == van.id end)
   end
 
+  def riding_for_user(nil, date), do: nil
   def riding_for_user(userid, date) do
     query = from r in Riding,
             where: r.userid == ^userid
 
-    Repo.one(query)
+    Repo.all(query) |> List.first
   end
 
   def button_class(vanid, self_rider) do
