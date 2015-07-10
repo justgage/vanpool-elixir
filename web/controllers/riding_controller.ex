@@ -11,17 +11,24 @@ defmodule Vanpool.RidingController do
     render(conn, "index.json", riding: riding)
   end
 
-  defp self_rider(userid, date) do
+  defp self_riders("round", userid, date) do
     import Ecto.Query
 
     query = from r in Riding,
-          where: r.userid == ^userid
-
-    query = from r in query,
+          where: r.userid == ^userid,
           where: r.date == ^date
 
     Repo.all(query)
-    |> List.first
+  end
+  defp self_riders(dir, userid, date) do
+    import Ecto.Query
+
+    query = from r in Riding,
+      where: r.userid == ^userid,
+      where: r.dir == ^dir,
+      where: r.date == ^date
+
+    Repo.all(query)
   end
 
   def should_update(nil, _riding_params), do: true
@@ -31,21 +38,27 @@ defmodule Vanpool.RidingController do
 
   def create(conn, %{"riding" => riding_params}) do
 
-    me = self_rider(riding_params["userid"], riding_params["date"])
+    # delete the other ridings to replace them
+    # so that round trips will replace the two individal ones
+    # and the two indivdual (in and out) will
+    # not mess with eachother
+    self_riders(riding_params["dir"], riding_params["userid"], riding_params["date"])
+    |> Enum.each(fn self_rider ->
+        delete(conn, %{
+          "id" => self_rider.id,
+          "riding" => riding_params
+        }) 
+      end)
 
-    if me != nil do # already registered
-      update(conn, %{"id" => me.id, "riding" => riding_params})
-    else # not registered yet
-      changeset = Riding.changeset(%Riding{}, riding_params)
+    changeset = Riding.changeset(%Riding{}, riding_params)
 
-      if changeset.valid? do
-        riding = Repo.insert!(changeset)
-        render(conn, "show.json", riding: riding)
-      else
-        conn
-        |> put_status(:unprocessable_entity)
-        |> render(Vanpool.ChangesetView, "error.json", changeset: changeset)
-      end
+    if changeset.valid? do
+      riding = Repo.insert!(changeset)
+      render(conn, "show.json", riding: riding)
+    else
+      conn
+      |> put_status(:unprocessable_entity)
+      |> render(Vanpool.ChangesetView, "error.json", changeset: changeset)
     end
   end
 

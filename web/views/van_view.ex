@@ -18,7 +18,7 @@ defmodule Vanpool.VanView do
     query = from r in Riding,
             where: r.userid == ^userid
 
-    Repo.one(query)
+    Repo.all(query) |> List.first
   end
 
   def button_class(vanid, self_rider) do
