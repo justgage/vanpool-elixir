@@ -19,7 +19,7 @@ self_rider = Vanpool.VanView.riding_for_user(@user_id, @date)
       <div class="VanBlock__Details--right">
         <div class="pull-right" aria-label="...">
           <%= if self_rider != nil && van.id == self_rider.vanid do %>
-            <img src="<%= @user_avatar %>" alt="Your riding"/>
+            <button type="button" class="btn btn-lg VanBlock__Details--rider-morning"><span class="Btn__Svg-Text">Morning</span></button>
           <% else %>
             <button type="button" class="btn btn-lg btn-link Btn__CheckIn">Check In</button>
           <% end %>

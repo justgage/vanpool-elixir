@@ -17,6 +17,12 @@ body, form, ul, table {
 a {
   color: #2F270A;
 }
+.btn:active {
+  box-shadow: none;
+}
+.btn:focus {
+  outline: none;
+}
 /* Phoenix flash messages */
 .alert:empty { display: none; }
 
@@ -118,6 +124,21 @@ form.link, form.button {
   flex: 1;
   -webkit-flex: 1;
   margin: auto;
+}
+.VanBlock__Details--rider-morning {
+  padding: 50px 0 0px 0;
+  background: url(/images/Morning.svg) no-repeat top center;
+  background-size: 50px;
+  }
+.VanBlock__Details--rider-roundtrip {
+  padding: 50px 0 0px 0;
+  background: url(/images/Roundtrip.svg) no-repeat top center;
+  background-size: 50px;
+}
+.VanBlock__Details--rider-afternoon {
+  padding: 50px 0 0px 0;
+  background: url(/images/afternoon.svg) no-repeat top center;
+  background-size: 50px;
 }
 .VanBlock__Buttons {
   padding: 15px 25px;

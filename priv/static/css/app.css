@@ -5155,28 +5155,36 @@ body, form, ul, table {
 a {
   color: #2F270A; }
 
+/* line 20, stdin */
+.btn:active {
+  box-shadow: none; }
+
+/* line 23, stdin */
+.btn:focus {
+  outline: none; }
+
 /* Phoenix flash messages */
-/* line 21, stdin */
+/* line 27, stdin */
 .alert:empty {
   display: none; }
 
 /* Phoenix inline forms in links and buttons */
-/* line 24, stdin */
+/* line 30, stdin */
 form.link, form.button {
   display: inline; }
 
 /* Custom page header */
-/* line 29, stdin */
+/* line 35, stdin */
 .Header__ApplicationName {
   text-transform: uppercase;
   color: #2F270A;
   font-size: 18px; }
-  /* line 33, stdin */
+  /* line 39, stdin */
   .Header__ApplicationName a:hover {
     color: #2F270A;
     text-decoration: underline; }
 
-/* line 38, stdin */
+/* line 44, stdin */
 .logo {
   width: 519px;
   height: 71px;
@@ -5186,49 +5194,49 @@ form.link, form.button {
   background-size: 519px 71px; }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
-/* line 49, stdin */
+/* line 55, stdin */
 .header, .marketing {
   padding-right: 15px;
   padding-left: 15px; }
 
 /* Customize container */
 @media (min-width: 768px) {
-  /* line 56, stdin */
+  /* line 62, stdin */
   .container {
     max-width: 730px; } }
 
-/* line 60, stdin */
+/* line 66, stdin */
 .container-narrow > hr {
   margin: 30px 0; }
 
 /* Main marketing message */
-/* line 65, stdin */
+/* line 71, stdin */
 .jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5; }
 
 /* Supporting marketing content */
-/* line 71, stdin */
+/* line 77, stdin */
 .marketing {
   margin: 35px 0; }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   /* Remove the padding we set earlier */
-  /* line 79, stdin */
+  /* line 85, stdin */
   .header, .marketing {
     padding-right: 0;
     padding-left: 0; }
   /* Space out the masthead */
-  /* line 84, stdin */
+  /* line 90, stdin */
   .header {
     margin-bottom: 50px; }
   /* Remove the bottom border on the jumbotron for visual effect */
-  /* line 88, stdin */
+  /* line 94, stdin */
   .jumbotron {
     border-bottom: 0; } }
 
-/* line 92, stdin */
+/* line 98, stdin */
 .VanBlock__Details {
   padding: 5px 25px;
   margin-bottom: 16px;
@@ -5239,31 +5247,49 @@ form.link, form.button {
   -webkit-align-items: center;
   min-height: 125px; }
 
-/* line 103, stdin */
+/* line 109, stdin */
 .status-is-good {
   background-color: #34D0CE; }
 
-/* line 106, stdin */
+/* line 112, stdin */
 .status-is-pending {
   background-color: #F9C34F; }
 
-/* line 109, stdin */
+/* line 115, stdin */
 .status-is-critical {
   background-color: #F45A63; }
 
-/* line 112, stdin */
+/* line 118, stdin */
 .VanBlock__Details--left {
   flex: 1;
   -webkit-flex: 1;
   margin: auto; }
 
-/* line 117, stdin */
+/* line 123, stdin */
 .VanBlock__Details--right {
   flex: 1;
   -webkit-flex: 1;
   margin: auto; }
 
-/* line 122, stdin */
+/* line 128, stdin */
+.VanBlock__Details--rider-morning {
+  padding: 50px 0 0px 0;
+  background: url(/images/Morning.svg) no-repeat top center;
+  background-size: 50px; }
+
+/* line 133, stdin */
+.VanBlock__Details--rider-roundtrip {
+  padding: 50px 0 0px 0;
+  background: url(/images/Roundtrip.svg) no-repeat top center;
+  background-size: 50px; }
+
+/* line 138, stdin */
+.VanBlock__Details--rider-afternoon {
+  padding: 50px 0 0px 0;
+  background: url(/images/afternoon.svg) no-repeat top center;
+  background-size: 50px; }
+
+/* line 143, stdin */
 .VanBlock__Buttons {
   padding: 15px 25px;
   margin-bottom: 16px;
@@ -5276,43 +5302,43 @@ form.link, form.button {
   -webkit-justify-content: space-around;
   min-height: 125px; }
 
-/* line 134, stdin */
+/* line 155, stdin */
 .VanBlock__Buttons--action {
   flex: 1;
   -webkit-flex: 1 100%;
   margin: auto; }
 
-/* line 139, stdin */
+/* line 160, stdin */
 .VanBlock__Name {
   font-size: 48px;
   font-weight: bold;
   color: #2F270A; }
 
-/* line 144, stdin */
+/* line 165, stdin */
 .VanBlock__Departure {
   float: left; }
 
-/* line 147, stdin */
+/* line 168, stdin */
 .VanBlock__Rider {
   clear: both;
   text-transform: uppercase;
   font-weight: 700; }
 
-/* line 152, stdin */
+/* line 173, stdin */
 .VanBlock__Rider--status {
   clear: both;
   display: block;
   text-transform: uppercase; }
 
-/* line 157, stdin */
+/* line 178, stdin */
 .Btn__CheckIn {
   color: #fff;
   text-transform: uppercase; }
-  /* line 160, stdin */
+  /* line 181, stdin */
   .Btn__CheckIn:hover {
     text-decoration: none; }
 
-/* line 166, stdin */
+/* line 187, stdin */
 .Btn__Svg, .Btn__Svg--morning, .Btn__Svg--roundtrip, .Btn__Svg--afternoon {
   display: inline-block;
   cursor: pointer;
@@ -5322,32 +5348,32 @@ form.link, form.button {
   text-align: center;
   color: #2F270A; }
 
-/* line 175, stdin */
+/* line 196, stdin */
 .Btn__Svg--morning {
   background: url(/images/Morning.svg) no-repeat top center;
   background-size: 50px;
   padding-top: 50px; }
 
-/* line 181, stdin */
+/* line 202, stdin */
 .Btn__Svg--roundtrip {
   background: url(/images/Roundtrip.svg) no-repeat top center;
   background-size: 50px;
   padding-top: 50px; }
 
-/* line 187, stdin */
+/* line 208, stdin */
 .Btn__Svg--afternoon {
   background: url(/images/Afternoon.svg) no-repeat top center;
   background-size: 50px;
   padding-top: 50px; }
 
-/* line 193, stdin */
+/* line 214, stdin */
 .Btn__Svg-Text {
   text-align: center;
   text-transform: uppercase;
   clear: left;
   margin-top: 25px; }
 
-/* line 199, stdin */
+/* line 220, stdin */
 .VanRiders__Container {
   padding: 20px;
   display: flex;
@@ -5355,22 +5381,22 @@ form.link, form.button {
   align-items: center;
   -webkit-align-items: center; }
 
-/* line 206, stdin */
+/* line 227, stdin */
 .VanRiders__Avatar {
   flex: 1; }
 
-/* line 209, stdin */
+/* line 230, stdin */
 .VanRiders__Name {
   flex: 1; }
 
-/* line 212, stdin */
+/* line 233, stdin */
 .VanRiders__Status {
   text-transform: uppercase;
   padding: 5px;
   text-align: center;
   border: 1px solid; }
 
-/* line 219, stdin */
+/* line 240, stdin */
 #sticky-bottom-bar {
   position: fixed;
   display: block;
@@ -5386,18 +5412,18 @@ form.link, form.button {
   transition: all 0.1s ease;
   z-index: 1000; }
 
-/* line 234, stdin */
+/* line 255, stdin */
 .sticky-up {
   top: -1px !important; }
 
-/* line 237, stdin */
+/* line 258, stdin */
 .StickyBar__Label {
   margin-right: 15px; }
 
-/* line 240, stdin */
+/* line 261, stdin */
 .btn-link {
   color: #2F270A; }
-  /* line 242, stdin */
+  /* line 263, stdin */
   .btn-link:hover {
     color: #fff; }
 
