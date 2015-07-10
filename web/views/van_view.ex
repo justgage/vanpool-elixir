@@ -21,8 +21,6 @@ defmodule Vanpool.VanView do
   end
 
   def button_class(vanid, self_rider) do
-    Logger.warn vanid
-    Logger.warn self_rider.id
     if self_rider != nil && vanid == self_rider.vanid do
       "riding-state-" <> self_rider.dir
     else
