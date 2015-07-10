@@ -1,8 +1,10 @@
-<%= link "< back", to: page_path(@conn, :index), class: "btn btn-link" %>
-<%
-riders = get_riders(@van.id, @date)
-self_rider = riding_for_user(@user_id, @date)
-%>
+ <p>
+  <%= link "< back", to: page_path(@conn, :index), class: "btn btn-link" %>
+  <%
+  riders = get_riders(@van.id, @date)
+  self_rider = riding_for_user(@user_id, @date)
+  %>
+</p>
 
 
 <div class="row VanBlock__Details status-is-critical">
@@ -32,10 +34,10 @@ self_rider = riding_for_user(@user_id, @date)
         <p class="VanRiders__Name"> <%= user.real_name %> </p>
         <%= if rider.dir != "round" do %>
           <p class="VanRiders__Status">
-            Going: <%= rider.dir %> 
+            Going: <%= rider.dir %>
           </p>
         <% end %>
-        
+
         <%= if rider.keys do %>
           <p class="VanRiders__Status">
             Driver

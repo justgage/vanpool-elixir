@@ -17,11 +17,23 @@ body, form, ul, table {
 a {
   color: #2F270A;
 }
+a:hover, a:focus {
+  color: #2F270A;
+  text-decoration: underline;
+}
 .btn:active {
   box-shadow: none;
 }
 .btn:focus {
   outline: none;
+}
+.btn-link {
+  color: #2F270A;
+}
+.btn-link:hover, .btn-link:focus {
+  color: #2F270A;
+  text-decoration: underline;
+  background-color: transparent;
 }
 /* Phoenix flash messages */
 .alert:empty { display: none; }
@@ -36,6 +48,7 @@ form.link, form.button {
   text-transform: uppercase;
   color: #2F270A;
   font-size: 18px;
+  line-height: 36px;
   & a:hover {
     color: #2F270A;
     text-decoration: underline;
@@ -88,11 +101,17 @@ form.link, form.button {
   }
   /* Space out the masthead */
   .header {
-    margin-bottom: 50px;
+    margin-bottom: 10px;
   }
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
+  }
+}
+.Application__Back a {
+  color: #2F270A;
+  &:hover {
+    color: #2F270A;
   }
 }
 .VanBlock__Details {
@@ -258,7 +277,7 @@ form.link, form.button {
 .StickyBar__Label {
   margin-right: 15px;
 }
-.btn-link {
+#sticky-bottom-bar > .btn-link {
   color: #2F270A;
   &:hover {
     color: #fff;

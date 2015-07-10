@@ -5156,35 +5156,51 @@ a {
   color: #2F270A; }
 
 /* line 20, stdin */
+a:hover, a:focus {
+  color: #2F270A;
+  text-decoration: underline; }
+
+/* line 24, stdin */
 .btn:active {
   box-shadow: none; }
 
-/* line 23, stdin */
+/* line 27, stdin */
 .btn:focus {
   outline: none; }
 
+/* line 30, stdin */
+.btn-link {
+  color: #2F270A; }
+
+/* line 33, stdin */
+.btn-link:hover, .btn-link:focus {
+  color: #2F270A;
+  text-decoration: underline;
+  background-color: transparent; }
+
 /* Phoenix flash messages */
-/* line 27, stdin */
+/* line 39, stdin */
 .alert:empty {
   display: none; }
 
 /* Phoenix inline forms in links and buttons */
-/* line 30, stdin */
+/* line 42, stdin */
 form.link, form.button {
   display: inline; }
 
 /* Custom page header */
-/* line 35, stdin */
+/* line 47, stdin */
 .Header__ApplicationName {
   text-transform: uppercase;
   color: #2F270A;
-  font-size: 18px; }
-  /* line 39, stdin */
+  font-size: 18px;
+  line-height: 36px; }
+  /* line 52, stdin */
   .Header__ApplicationName a:hover {
     color: #2F270A;
     text-decoration: underline; }
 
-/* line 44, stdin */
+/* line 57, stdin */
 .logo {
   width: 519px;
   height: 71px;
@@ -5194,49 +5210,56 @@ form.link, form.button {
   background-size: 519px 71px; }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
-/* line 55, stdin */
+/* line 68, stdin */
 .header, .marketing {
   padding-right: 15px;
   padding-left: 15px; }
 
 /* Customize container */
 @media (min-width: 768px) {
-  /* line 62, stdin */
+  /* line 75, stdin */
   .container {
     max-width: 730px; } }
 
-/* line 66, stdin */
+/* line 79, stdin */
 .container-narrow > hr {
   margin: 30px 0; }
 
 /* Main marketing message */
-/* line 71, stdin */
+/* line 84, stdin */
 .jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5; }
 
 /* Supporting marketing content */
-/* line 77, stdin */
+/* line 90, stdin */
 .marketing {
   margin: 35px 0; }
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   /* Remove the padding we set earlier */
-  /* line 85, stdin */
+  /* line 98, stdin */
   .header, .marketing {
     padding-right: 0;
     padding-left: 0; }
   /* Space out the masthead */
-  /* line 90, stdin */
+  /* line 103, stdin */
   .header {
-    margin-bottom: 50px; }
+    margin-bottom: 10px; }
   /* Remove the bottom border on the jumbotron for visual effect */
-  /* line 94, stdin */
+  /* line 107, stdin */
   .jumbotron {
     border-bottom: 0; } }
 
-/* line 98, stdin */
+/* line 111, stdin */
+.Application__Back a {
+  color: #2F270A; }
+  /* line 113, stdin */
+  .Application__Back a:hover {
+    color: #2F270A; }
+
+/* line 117, stdin */
 .VanBlock__Details {
   padding: 5px 25px;
   margin-bottom: 16px;
@@ -5247,49 +5270,49 @@ form.link, form.button {
   -webkit-align-items: center;
   min-height: 125px; }
 
-/* line 109, stdin */
+/* line 128, stdin */
 .status-is-good {
   background-color: #34D0CE; }
 
-/* line 112, stdin */
+/* line 131, stdin */
 .status-is-pending {
   background-color: #F9C34F; }
 
-/* line 115, stdin */
+/* line 134, stdin */
 .status-is-critical {
   background-color: #F45A63; }
 
-/* line 118, stdin */
+/* line 137, stdin */
 .VanBlock__Details--left {
   flex: 1;
   -webkit-flex: 1;
   margin: auto; }
 
-/* line 123, stdin */
+/* line 142, stdin */
 .VanBlock__Details--right {
   flex: 1;
   -webkit-flex: 1;
   margin: auto; }
 
-/* line 128, stdin */
+/* line 147, stdin */
 .VanBlock__Details--rider-morning {
   padding: 50px 0 0px 0;
   background: url(/images/Morning.svg) no-repeat top center;
   background-size: 50px; }
 
-/* line 133, stdin */
+/* line 152, stdin */
 .VanBlock__Details--rider-roundtrip {
   padding: 50px 0 0px 0;
   background: url(/images/Roundtrip.svg) no-repeat top center;
   background-size: 50px; }
 
-/* line 138, stdin */
+/* line 157, stdin */
 .VanBlock__Details--rider-afternoon {
   padding: 50px 0 0px 0;
   background: url(/images/afternoon.svg) no-repeat top center;
   background-size: 50px; }
 
-/* line 143, stdin */
+/* line 162, stdin */
 .VanBlock__Buttons {
   padding: 15px 25px;
   margin-bottom: 16px;
@@ -5302,43 +5325,43 @@ form.link, form.button {
   -webkit-justify-content: space-around;
   min-height: 125px; }
 
-/* line 155, stdin */
+/* line 174, stdin */
 .VanBlock__Buttons--action {
   flex: 1;
   -webkit-flex: 1 100%;
   margin: auto; }
 
-/* line 160, stdin */
+/* line 179, stdin */
 .VanBlock__Name {
   font-size: 48px;
   font-weight: bold;
   color: #2F270A; }
 
-/* line 165, stdin */
+/* line 184, stdin */
 .VanBlock__Departure {
   float: left; }
 
-/* line 168, stdin */
+/* line 187, stdin */
 .VanBlock__Rider {
   clear: both;
   text-transform: uppercase;
   font-weight: 700; }
 
-/* line 173, stdin */
+/* line 192, stdin */
 .VanBlock__Rider--status {
   clear: both;
   display: block;
   text-transform: uppercase; }
 
-/* line 178, stdin */
+/* line 197, stdin */
 .Btn__CheckIn {
   color: #fff;
   text-transform: uppercase; }
-  /* line 181, stdin */
+  /* line 200, stdin */
   .Btn__CheckIn:hover {
     text-decoration: none; }
 
-/* line 187, stdin */
+/* line 206, stdin */
 .Btn__Svg, .Btn__Svg--morning, .Btn__Svg--roundtrip, .Btn__Svg--afternoon {
   display: inline-block;
   cursor: pointer;
@@ -5348,32 +5371,32 @@ form.link, form.button {
   text-align: center;
   color: #2F270A; }
 
-/* line 196, stdin */
+/* line 215, stdin */
 .Btn__Svg--morning {
   background: url(/images/Morning.svg) no-repeat top center;
   background-size: 50px;
   padding-top: 50px; }
 
-/* line 202, stdin */
+/* line 221, stdin */
 .Btn__Svg--roundtrip {
   background: url(/images/Roundtrip.svg) no-repeat top center;
   background-size: 50px;
   padding-top: 50px; }
 
-/* line 208, stdin */
+/* line 227, stdin */
 .Btn__Svg--afternoon {
   background: url(/images/Afternoon.svg) no-repeat top center;
   background-size: 50px;
   padding-top: 50px; }
 
-/* line 214, stdin */
+/* line 233, stdin */
 .Btn__Svg-Text {
   text-align: center;
   text-transform: uppercase;
   clear: left;
   margin-top: 25px; }
 
-/* line 220, stdin */
+/* line 239, stdin */
 .VanRiders__Container {
   padding: 20px;
   display: flex;
@@ -5381,22 +5404,22 @@ form.link, form.button {
   align-items: center;
   -webkit-align-items: center; }
 
-/* line 227, stdin */
+/* line 246, stdin */
 .VanRiders__Avatar {
   margin-right: 13px; }
 
-/* line 230, stdin */
+/* line 249, stdin */
 .VanRiders__Name {
   flex: 1; }
 
-/* line 233, stdin */
+/* line 252, stdin */
 .VanRiders__Status {
   text-transform: uppercase;
   padding: 5px;
   text-align: center;
   border: 1px solid; }
 
-/* line 240, stdin */
+/* line 259, stdin */
 #sticky-bottom-bar {
   position: fixed;
   display: block;
@@ -5412,19 +5435,19 @@ form.link, form.button {
   transition: all 0.1s ease;
   z-index: 1000; }
 
-/* line 255, stdin */
+/* line 274, stdin */
 .sticky-up {
   top: -1px !important; }
 
-/* line 258, stdin */
+/* line 277, stdin */
 .StickyBar__Label {
   margin-right: 15px; }
 
-/* line 261, stdin */
-.btn-link {
+/* line 280, stdin */
+#sticky-bottom-bar > .btn-link {
   color: #2F270A; }
-  /* line 263, stdin */
-  .btn-link:hover {
+  /* line 282, stdin */
+  #sticky-bottom-bar > .btn-link:hover {
     color: #fff; }
 
 
