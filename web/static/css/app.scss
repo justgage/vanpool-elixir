@@ -11,7 +11,7 @@ body, form, ul, table {
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: #F8F7E1;
-  font-family: "nimbus-sans",sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #2F270A;
 }
 a {
@@ -28,10 +28,10 @@ form.link, form.button {
 /* Custom page header */
 .Header__ApplicationName {
   text-transform: uppercase;
-  color: #333;
+  color: #2F270A;
   font-size: 18px;
   & a:hover {
-    color: #333;
+    color: #2F270A;
     text-decoration: underline;
   }
 }
@@ -97,6 +97,7 @@ form.link, form.button {
   display: -webkit-flex;
   align-items: center;
   -webkit-align-items: center;
+  min-height: 125px;
 }
 //status of the van pool
 .status-is-good {
@@ -118,20 +119,36 @@ form.link, form.button {
   -webkit-flex: 1;
   margin: auto;
 }
-.VanBlock__Details--action {
-  flex: 1 100%;
+.VanBlock__Buttons {
+  padding: 15px 25px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  display: flex;
+  display: -webkit-flex;
+  align-items: flex-end;
+  -webkit-align-items: flex-end;
+  justify-content: space-around;
+  -webkit-justify-content: space-around;
+}
+.VanBlock__Buttons--action {
+  flex: 1;
   -webkit-flex: 1 100%;
   margin: auto;
 }
 .VanBlock__Name {
-  font-size: 24px;
+  font-size: 48px;
   font-weight: bold;
   color: #2F270A;
 }
-.VanDeparture {
+.VanBlock__Departure {
   float: left;
 }
-.VanDriver--status {
+.VanBlock__Rider {
+  clear: both;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.VanBlock__Rider--status {
   clear: both;
   display: block;
   text-transform: uppercase;
@@ -147,30 +164,56 @@ form.link, form.button {
 //global button class
 .Btn__Svg {
   display: inline-block;
-  position: relative;
   cursor: pointer;
   width: 33%;
-  padding: 0px;
+  padding: 25px 0 0 0;
   text-decoration: none;
   text-align: center;
   color: #2F270A;
 }
 .Btn__Svg--morning {
   @extend .Btn__Svg;
-  background: url(/images/Morning.svg) no-repeat center;
-  background-size: contain;
+  background: url(/images/Morning.svg) no-repeat top center;
+  background-size: 50px;
+  padding-top: 50px;
 }
 .Btn__Svg--roundtrip {
   @extend .Btn__Svg;
-  background: url(/images/Roundtrip.svg) no-repeat center;
-  background-size: contain;
+  background: url(/images/Roundtrip.svg) no-repeat top center;
+  background-size: 50px;
+  padding-top: 50px;
 }
 .Btn__Svg--afternoon {
   @extend .Btn__Svg;
-  background: url(/images/Afternoon.svg) no-repeat center;
-  background-size: contain;
+  background: url(/images/Afternoon.svg) no-repeat top center;
+  background-size: 50px;
+  padding-top: 50px;
 }
-
+.Btn__Svg-Text {
+  text-align: center;
+  text-transform: uppercase;
+  clear: left;
+  margin-top: 25px;
+}
+.VanRiders__Container {
+  padding: 20px;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  -webkit-align-items: center;
+}
+.VanRiders__Avatar {
+  flex: 1;
+}
+.VanRiders__Name {
+  flex: 1;
+}
+.VanRiders__Status {
+  text-transform: uppercase;
+  padding: 5px;
+  text-align: center;
+  border: 1px solid
+}
 #sticky-bottom-bar {
   position: fixed;
   bottom: -75px;

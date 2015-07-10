@@ -7,7 +7,7 @@ use Mix.Config
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
 config :vanpool, Vanpool.Endpoint,
-  http: [port: 4000],
+  http: [port: 5000],
   debug_errors: true,
   code_reloader: true,
   cache_static_lookup: false,
@@ -29,7 +29,7 @@ config :logger, :console, format: "[$level] $message\n"
 # Configure your database
 config :vanpool, Vanpool.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "gpeterson",
+  username: "phiett",
   password: "postgres",
   database: "vanpool_dev",
   size: 10 # The amount of database connections in the pool
