@@ -24,6 +24,11 @@ defmodule Vanpool.RidingController do
     |> List.first
   end
 
+  def should_update(nil, _riding_params), do: true
+  def should_update(rider, riding_params) do
+    true
+  end
+
   def create(conn, %{"riding" => riding_params}) do
 
     me = self_rider(riding_params["userid"], riding_params["date"])
