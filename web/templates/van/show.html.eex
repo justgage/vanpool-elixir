@@ -39,7 +39,7 @@
         <% end %>
 
         <%= if rider.keys do %>
-          <p class="VanRiders__Status">
+          <p class="VanRiders__Status driver">
             Driver
           </p>
         <% end %>

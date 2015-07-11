@@ -253,6 +253,8 @@ form.link, form.button {
 }
 .VanRiders__Avatar {
   margin-right: 13px;
+  width: 48px;
+  height: 48px;
 }
 .VanRiders__Name {
   flex: 1;
@@ -261,7 +263,10 @@ form.link, form.button {
   text-transform: uppercase;
   padding: 5px;
   text-align: center;
-  border: 1px solid
+  border: 1px solid;
+  margin-left: 11px;
+  color: #F9C34F;
+  border-radius: 4px;
 }
 
 #sticky-bottom-bar {
@@ -311,4 +316,8 @@ form.link, form.button {
   .VanBlock__Buttons { 
     display:hide; 
   }
+}
+
+.driver {
+  color: #34D0CE;
 }

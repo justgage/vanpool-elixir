@@ -38,10 +38,25 @@ var hideButton = function(id, state) {
 }
 
 function clear_ride(date) {
-  var promise = $.post(window.path, info);
-  data = {
+  var info = {
     userid : window.userid
   };
+  var promise = $.post(window.path, info);
   promise.done(function (data) { location.reload(); })
   promise.fail(function (data) { alert("Sorry there was an error on the server ⨂_⨂"); })
+}
+
+function save_local_userid(user_id) {
+  localStorage.setItem("user_id", user_id);
+}
+
+function send_local_userid(user_id) {
+  var userid = localStorage.getItem("user_id");
+
+  if (userid !== null) {
+    var promise = $.get("/auth/userid_login/" + userid);
+    promise.done(function (data) { location.reload(); })
+    promise.fail(function (data) { alert("Sorry there was an error on the server ⨂_⨂"); })
+  }
+
 }

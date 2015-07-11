@@ -38,7 +38,7 @@
     <script src="<%= static_path(@conn, "/js/myapp.js") %>"></script>
     <script>require("web/static/js/app")</script>
     <script type="text/javascript" charset="utf-8">
-      save_local("<%= @user_id %>", "<%= @access_token %>");
+      // save_local("<%= @user_id %>", "<%= @access_token %>");
     </script>
   <% else %>
     <div class="text-center">

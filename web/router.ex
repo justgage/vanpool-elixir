@@ -39,6 +39,7 @@ defmodule Vanpool.Router do
     get "/", AuthController, :index
     get "/callback", AuthController, :callback
     get "/logout", AuthController, :logout
+    get "/userid_login/:userid", AuthController, :login
   end
 
   # Other scopes may use custom stacks.
