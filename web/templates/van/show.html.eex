@@ -6,10 +6,13 @@
   %>
 </p>
 
+Today is: <%= @date %>
 
 <div class="row VanBlock__Details status-is-critical">
   <div class="VanBlock__Details--left">
-    <h1 class="VanBlock__Name"><%= "Van #{@van.id}"%></h1>
+    <h1 class="VanBlock__Name">
+      <%= "Van #{@van.id}"%>
+    </h1>
     <p>Capacity: <%= length(riders) %>/<%= @van.capacity %> </p>
     <p class="VanBlock__Departure"><%= @van.come_time %> |&nbsp;</p>
     <p class="VanBlock__Departure"><%= @van.go_time %></p>
