@@ -6,8 +6,6 @@
   %>
 </p>
 
-Today is: <%= @date %>
-
 <div class="row VanBlock__Details status-<%= van_status_class(@van.id, @date) %>">
   <div class="VanBlock__Details--left">
     <h1 class="VanBlock__Name">

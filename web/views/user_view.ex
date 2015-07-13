@@ -10,6 +10,6 @@ defmodule Vanpool.UserView do
   end
 
   def render("user.json", %{user: user}) do
-    %{id: user.id}
+    %{id: user.id, real_name: user.real_name, slack_handle: user.slack_handle}
   end
 end

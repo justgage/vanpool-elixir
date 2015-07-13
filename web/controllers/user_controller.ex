@@ -5,6 +5,11 @@ defmodule Vanpool.UserController do
 
   plug :scrub_params, "user" when action in [:create, :update]
 
+  def index(conn, _params) do
+    users = Repo.all(User)
+    render(conn, "index.json", users: users)
+  end
+
   def index(_params) do
     users = Repo.all(User)
   end
