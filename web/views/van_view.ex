@@ -16,17 +16,15 @@ defmodule Vanpool.VanView do
   def riding_for_user(nil, date), do: nil
   def riding_for_user(userid, date) do
     query = from r in Riding,
+    where: r.date== ^date,
     where: r.userid == ^userid
 
     Repo.all(query)
   end
 
-  def button_class(vanid, self_rider) do
-    if self_rider != nil && vanid == self_rider.vanid do
-      "riding-state-" <> self_rider.dir
-    else
-      ""
-    end
+  def van_has_rider(van, self_rider) do
+      self_rider != nil && 
+      Enum.find(self_rider, fn s -> s.vanid == van.id end) 
   end
 
   def van_status_class(vanid, date) do
@@ -39,13 +37,32 @@ defmodule Vanpool.VanView do
     end
   end
 
-  def van_driver?(vanid, date) do
+  def riding?(userid, vanid, date) do
     query = from r in Riding,
+    where: r.date == ^date,
+    where: r.vanid == ^vanid,
+    where: r.userid == ^userid
+
+    length(Repo.all(query)) > 0
+  end
+
+  def van_driver?(vanid, date) do
+    in_drivers = from r in Riding,
+    where: r.dir == "in",
     where: r.keys == true,
     where: r.date == ^date,
     where: r.vanid == ^vanid
 
-    length(Repo.all(query)) > 0
+    out_drivers = from r in Riding,
+    where: r.dir == "out",
+    where: r.keys == true,
+    where: r.date == ^date,
+    where: r.vanid == ^vanid
+
+    in? = length(Repo.all(in_drivers)) > 0
+    out? = length(Repo.all(out_drivers)) > 0
+
+    in? && out?
   end
 
   # gets the riders for a van

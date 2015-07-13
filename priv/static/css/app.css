@@ -5263,6 +5263,8 @@ form.link, form.button {
 .VanBlock__Details {
   padding: 5px 25px;
   margin-bottom: 16px;
+  margin-left: -8px;
+  margin-right: -8px;
   border-radius: 8px;
   display: flex;
   display: -webkit-flex;
@@ -5270,49 +5272,49 @@ form.link, form.button {
   -webkit-align-items: center;
   min-height: 125px; }
 
-/* line 128, stdin */
+/* line 130, stdin */
 .status-is-good {
   background-color: #34D0CE; }
 
-/* line 131, stdin */
+/* line 133, stdin */
 .status-is-pending {
   background-color: #F9C34F; }
 
-/* line 134, stdin */
+/* line 136, stdin */
 .status-is-critical {
   background-color: #F45A63; }
 
-/* line 137, stdin */
+/* line 139, stdin */
 .VanBlock__Details--left {
   flex: 1;
   -webkit-flex: 1;
   margin: auto; }
 
-/* line 142, stdin */
+/* line 144, stdin */
 .VanBlock__Details--right {
   flex: 1;
   -webkit-flex: 1;
   margin: auto; }
 
-/* line 147, stdin */
+/* line 149, stdin */
 .VanBlock__Details--rider-morning {
   padding: 50px 0 0px 0;
   background: url(/images/Morning.svg) no-repeat top center;
   background-size: 50px; }
 
-/* line 152, stdin */
+/* line 154, stdin */
 .VanBlock__Details--rider-roundtrip {
   padding: 50px 0 0px 0;
   background: url(/images/Roundtrip.svg) no-repeat top center;
   background-size: 50px; }
 
-/* line 157, stdin */
+/* line 159, stdin */
 .VanBlock__Details--rider-afternoon {
   padding: 50px 0 0px 0;
   background: url(/images/afternoon.svg) no-repeat top center;
   background-size: 50px; }
 
-/* line 162, stdin */
+/* line 164, stdin */
 .VanBlock__Buttons {
   padding: 15px 25px;
   margin-bottom: 16px;
@@ -5325,43 +5327,43 @@ form.link, form.button {
   -webkit-justify-content: space-around;
   min-height: 152px; }
 
-/* line 174, stdin */
+/* line 176, stdin */
 .VanBlock__Buttons--action {
   flex: 1;
   -webkit-flex: 1 100%;
   margin: auto; }
 
-/* line 179, stdin */
+/* line 181, stdin */
 .VanBlock__Name {
   font-size: 48px;
   font-weight: bold;
   color: #2F270A; }
 
-/* line 184, stdin */
+/* line 186, stdin */
 .VanBlock__Departure {
   float: left; }
 
-/* line 187, stdin */
+/* line 189, stdin */
 .VanBlock__Rider {
   clear: both;
   text-transform: uppercase;
   font-weight: 700; }
 
-/* line 192, stdin */
+/* line 194, stdin */
 .VanBlock__Rider--status {
   clear: both;
   display: block;
   text-transform: uppercase; }
 
-/* line 197, stdin */
+/* line 199, stdin */
 .Btn__CheckIn {
   color: #fff;
   text-transform: uppercase; }
-  /* line 200, stdin */
+  /* line 202, stdin */
   .Btn__CheckIn:hover {
     text-decoration: none; }
 
-/* line 206, stdin */
+/* line 208, stdin */
 .Btn__Svg, .Btn__Svg--morning, .Btn__Svg--morning:active, .Btn__Svg--roundtrip, .Btn__Svg--roundtrip:active, .Btn__Svg--afternoon, .Btn__Svg--afternoon:active {
   display: inline-block;
   cursor: pointer;
@@ -5370,38 +5372,39 @@ form.link, form.button {
   text-decoration: none;
   text-align: center;
   color: #2F270A; }
-  /* line 214, stdin */
+  /* line 216, stdin */
   .Btn__Svg:hover, .Btn__Svg--morning:hover, .Btn__Svg--roundtrip:hover, .Btn__Svg--afternoon:hover {
     border-radius: 0;
     cursor: pointer;
     box-shadow: inset 0px -5px 0px #F8F7E1; }
 
-/* line 221, stdin */
+/* line 223, stdin */
 .Btn__Svg--morning, .Btn__Svg--morning:active {
   background: url(/images/Morning.svg) no-repeat top center;
   background-size: 50px;
   padding-top: 50px; }
 
-/* line 228, stdin */
+/* line 230, stdin */
 .Btn__Svg--roundtrip, .Btn__Svg--roundtrip:active {
   background: url(/images/Roundtrip.svg) no-repeat top center;
   background-size: 50px;
   padding-top: 50px; }
 
-/* line 235, stdin */
+/* line 237, stdin */
 .Btn__Svg--afternoon, .Btn__Svg--afternoon:active {
   background: url(/images/Afternoon.svg) no-repeat top center;
   background-size: 50px;
   padding-top: 50px; }
 
-/* line 241, stdin */
+/* line 243, stdin */
 .Btn__Svg-Text {
   text-align: center;
   text-transform: uppercase;
   clear: left;
-  margin-top: 25px; }
+  margin-top: 25px;
+  font-size: 12px; }
 
-/* line 247, stdin */
+/* line 250, stdin */
 .VanRiders__Container {
   padding: 20px;
   display: flex;
@@ -5409,17 +5412,17 @@ form.link, form.button {
   align-items: center;
   -webkit-align-items: center; }
 
-/* line 254, stdin */
+/* line 257, stdin */
 .VanRiders__Avatar {
   margin-right: 13px;
   width: 48px;
   height: 48px; }
 
-/* line 259, stdin */
+/* line 262, stdin */
 .VanRiders__Name {
   flex: 1; }
 
-/* line 262, stdin */
+/* line 265, stdin */
 .VanRiders__Status {
   text-transform: uppercase;
   padding: 5px;
@@ -5429,7 +5432,7 @@ form.link, form.button {
   color: #F9C34F;
   border-radius: 4px; }
 
-/* line 272, stdin */
+/* line 275, stdin */
 #sticky-bottom-bar {
   position: fixed;
   display: block;
@@ -5445,36 +5448,36 @@ form.link, form.button {
   transition: all 0.1s ease;
   z-index: 1000; }
 
-/* line 287, stdin */
+/* line 290, stdin */
 .sticky-up {
   top: -1px !important; }
 
-/* line 290, stdin */
+/* line 293, stdin */
 .StickyBar__Label {
   margin-right: 15px; }
 
-/* line 294, stdin */
+/* line 297, stdin */
 #sticky-bottom-bar > .btn-link {
   color: #2F270A; }
-  /* line 296, stdin */
+  /* line 299, stdin */
   #sticky-bottom-bar > .btn-link:hover {
     color: #fff; }
 
-/* line 302, stdin */
+/* line 305, stdin */
 .hide-buttons .VanBlock__Details {
   display: show; }
-/* line 306, stdin */
+/* line 309, stdin */
 .hide-buttons .VanBlock__Buttons {
   display: none; }
 
-/* line 312, stdin */
+/* line 315, stdin */
 .show-buttons .VanBlock__Details {
   display: none; }
-/* line 316, stdin */
+/* line 319, stdin */
 .show-buttons .VanBlock__Buttons {
   display: hide; }
 
-/* line 321, stdin */
+/* line 324, stdin */
 .driver {
   color: #34D0CE; }
 

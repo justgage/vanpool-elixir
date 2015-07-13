@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <title>Vanpool App</title>
+    <title>Vanpool App </title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
@@ -23,7 +23,11 @@
     <div class="container" role="main">
       <div class="row header">
         <img src="<%= @user_avatar %> " alt="avatar" class="pull-right"/>
-        <h1 class="Header__ApplicationName"><%= link "Panda Express", to: page_path(@conn, :index) %></h1>
+        <h1 class="Header__ApplicationName">
+          <a href="<%= page_path(@conn, :index) %>">
+            Panda Express <span class="badge">Alpha</span>
+          </a>
+        </h1>
       </div>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>

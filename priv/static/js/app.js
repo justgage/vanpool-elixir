@@ -117,16 +117,11 @@ require.register("web/static/js/app", function(exports, require, module) {
 // chan.join().receive("ok", chan => {
 //   console.log("Success!")
 // })
-"use strict";
-
-function save_local(user_id, token) {
-  localStorage.setItem("user_id", user_id);
-  localStorage.setItem("token", token);
-}
+'use strict';
 
 var App = {
   init: function init() {
-    $("body").append("App initialized.");
+    $('body').append('App initialized.');
   }
 };
 

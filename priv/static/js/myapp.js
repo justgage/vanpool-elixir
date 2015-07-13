@@ -60,3 +60,15 @@ function send_local_userid(user_id) {
   }
 
 }
+
+function delete_all() {
+     var info = {
+       "riding" : {
+         "userid" : userid,
+         "date" : date,
+       },
+     };
+    var promise = $.post("/api/riding/delete_all", info);
+    promise.done(function (data) { location.reload(); })
+    promise.fail(function (data) { alert("Sorry there was an error on the server ⨂_⨂"); })
+}

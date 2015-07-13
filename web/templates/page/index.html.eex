@@ -20,10 +20,12 @@ self_rider = Vanpool.VanView.riding_for_user(@user_id, @date)
       </div>
       <div class="VanBlock__Details--right">
         <div onclick="hideButton('#van-line-<%= van.id %>', true)" class="pull-right" aria-label="...">
-          <%= if self_rider != nil && Enum.find(self_rider, fn s -> s.vanid == van.id end) do %>
-            <button type="button" class="btn btn-lg VanBlock__Details--rider-<%= riding_state(self_rider, van) %>"><span class="Btn__Svg-Text">
-              <%= riding_state(self_rider, van) %>
-            </span></button>
+          <%= if Vanpool.VanView.van_has_rider(van, self_rider) do %>
+            <button type="button" class="btn btn-lg VanBlock__Details--rider-<%= riding_state(self_rider, van) %>">
+              <span class="Btn__Svg-Text">
+                <%= riding_state(self_rider, van) %>
+              </span>
+            </button>
           <% else %>
             <button type="button" class="btn btn-lg btn-link Btn__CheckIn">Check In</button>
           <% end %>
@@ -48,6 +50,10 @@ var date = moment().format("YYYY-MM-DD");
 </script>
 
 <% end %>
+
+<div class="text-center">
+  <button class="btn btn-lg btn-normal" onclick="delete_all()"> Not Riding </button>
+</div>
 
 <%# <button onclick="clear_ride()">Don't Ride</button> %>
 

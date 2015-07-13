@@ -39,7 +39,7 @@ defmodule Vanpool.AuthController do
     email = profile["email"]
     phone = profile["phone"]
 
-    Vanpool.UserController.create(conn, %{"user" =>  %{
+    Vanpool.UserController.create(%{"user" =>  %{
         "userid" => user_id,
         "avatar_url" => avatar,
         "real_name" => name,
@@ -48,13 +48,6 @@ defmodule Vanpool.AuthController do
         "email" => email,
       } 
     })
-
-    Logger.error("slack user info ------")
-    # Logger.error(user)
-    Logger.error(avatar)
-    Logger.error(name)
-
-
 
     conn
     |> put_session(:user_id, user_id)
@@ -77,8 +70,8 @@ defmodule Vanpool.AuthController do
     |> redirect(to: "/")
   end
 
-  def relogin_ do
-    
+  def relogin_username do
+    # this will use local storage to make it happen
   end
 end
 

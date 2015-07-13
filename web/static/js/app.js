@@ -8,11 +8,6 @@
 "use strict";
 
 
-function save_local(user_id, token) {
-  localStorage.setItem("user_id", user_id);
-  localStorage.setItem("token", token);
-}
-
 var App = {
   init: function init() {
     $('body').append('App initialized.');

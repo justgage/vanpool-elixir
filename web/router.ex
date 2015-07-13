@@ -46,6 +46,7 @@ defmodule Vanpool.Router do
   scope "/api", Vanpool do
     pipe_through :api
     resources "/riding", RidingController
+    post "/riding/delete_all", RidingController, :delete_all
     resources "/users", UserController
   end
 end
