@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-    <title>Vanpool App </title>
+    <title>Caravan</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
@@ -25,7 +25,7 @@
         <img src="<%= @user_avatar %> " alt="avatar" class="pull-right"/>
         <h1 class="Header__ApplicationName">
           <a href="<%= page_path(@conn, :index) %>">
-            Panda Express <span class="badge">Alpha</span>
+            CARAVAN <span class="badge">Alpha</span>
           </a>
         </h1>
       </div>
@@ -46,9 +46,9 @@
     </script>
   <% else %>
     <div class="text-center">
-      <h1>Welcome to Vanpool!</h1>
-      <h2>Please login with Slack to continue</h2>
-      <a class="btn btn-lg btn-default" href="<%= auth_path(@conn, :index) %>">Login with:<img src="<%= static_path(@conn, "/images/slack.png") %>" alt="Slack"/></a>
+      <h1>CARAVAN</h1>
+      <h3>Login with:</h3>
+      <a class="btn btn-lg btn-default" href="<%= auth_path(@conn, :index) %>"><img src="<%= static_path(@conn, "/images/slack.png") %>" alt="Slack"/></a>
     </div>
   <% end %>
   </body>
