@@ -10,6 +10,9 @@ defmodule Vanpool.RidingView do
   end
 
   def render("riding.json", %{riding: riding}) do
-    %{id: riding.id, userid: riding.userid}
+    %{
+      id: riding.id,
+      userid: riding.userid
+    }
   end
 end

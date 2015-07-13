@@ -31,6 +31,7 @@ defmodule Vanpool.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/users", PageController, :index
     resources "/vans", VanController
   end
 
