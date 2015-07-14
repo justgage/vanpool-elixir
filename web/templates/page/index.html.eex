@@ -3,12 +3,12 @@ self_rider = Vanpool.VanView.riding_for_user(@user_id, @date)
 %>
 <%= for van <- @vans do %>
 
-  <div id="van-line-<%= van.id %>" class="hide-buttons">
+  <div id="van-line-<%= van.number %>" class="hide-buttons">
     
   <div  class="row VanBlock__Details status-<%= Vanpool.VanView.van_status_class(van.id, @date) %>">
       <div class="VanBlock__Details--left">
         <h1 class="VanBlock__Name">
-          <%= link "Van #{van.id}", to: van_path(@conn, :show, van), class: "" %>
+          <%= link "Van #{van.number}", to: van_path(@conn, :show, van), class: "" %>
         </h1>
         <p class="VanBlock__Departure"><%= van.come_time %> |&nbsp;</p>
         <p class="VanBlock__Departure"><%= van.go_time %></p>

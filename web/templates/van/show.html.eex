@@ -9,9 +9,12 @@
 <div class="row VanBlock__Details status-<%= van_status_class(@van.id, @date) %>">
   <div class="VanBlock__Details--left">
     <h1 class="VanBlock__Name">
-      <%= "Van #{@van.id}"%>
-    </h1>
-    <p>Capacity: <%= length(riders) %>/<%= @van.capacity %> </p>
+      <%= "Van #{@van.number}"%>
+  </h1>
+  <p><a href="https://instructure.slack.com/messages/pandaexpress-van<%=@van.number%>/">
+    #pandaexpress-van<%=@van.number%>
+  </a></p>
+  <%# <p>Capacity: <%= length(riders) /<%= @van.capacity  </p>%>
     <p class="VanBlock__Departure"><%= @van.come_time %> |&nbsp;</p>
     <p class="VanBlock__Departure"><%= @van.go_time %></p>
     <p class="VanBlock__Rider">
@@ -32,7 +35,14 @@
     <% {user, rider} = rider_touple %>
       <%# see https://api.slack.com/types/user for the shape of this %>
         <img class="VanRiders__Avatar" src="<%= user.avatar_url %>" alt="<%= user.real_name %>" />
-        <p class="VanRiders__Name"> <%= user.real_name %> </p>
+        <p class="VanRiders__Name"> <%= user.real_name %>
+        <br />
+        <small>
+          <a href="https://instructure.slack.com/messages/@<%= user.slack_handle %>/">
+            @<%= user.slack_handle %>
+          </a>
+        </small>
+        </p>
         <%= if rider.dir != "round" do %>
           <p class="VanRiders__Status">
             <%= rider.dir %>

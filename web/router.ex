@@ -1,14 +1,36 @@
 defmodule Vanpool.Router do
   use Vanpool.Web, :router
-
+  require Logger
 
   pipeline :browser do
+    # plug :auth
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_flash
     plug :protect_from_forgery
     plug :assign_env
   end
+
+  pipeline :api do
+    # plug :auth_api
+    plug :fetch_session
+    plug :accepts, ["json"]
+   end
+
+  def auth_api(conn, opts) do
+    Logger.warn opts
+
+    conn 
+    |> Plug.Conn.send_resp(400, %{data: "Sorry your not authenticated"})
+    |> halt
+  end
+  def auth(conn, opts) do
+    Logger.warn opts
+    conn 
+    |> Plug.Conn.send_resp(400, "Sorry your not authed")
+    |> halt
+  end
+
 
   defp assign_env(conn, _) do
     conn
@@ -22,10 +44,6 @@ defmodule Vanpool.Router do
     |> assign(:token,          get_session(conn, :token))
   end
 
-  pipeline :api do
-    plug :fetch_session
-    plug :accepts, ["json"]
-   end
 
   scope "/", Vanpool do
     pipe_through :browser # Use the default browser stack
@@ -50,4 +68,5 @@ defmodule Vanpool.Router do
     post "/riding/delete_all", RidingController, :delete_all
     resources "/users", UserController
   end
+
 end
