@@ -77,7 +77,7 @@ defmodule Vanpool.VanView do
     riders = Repo.all(query)
 
     riders 
-    |> Enum.sort_by( fn {u,r} -> r.keys end )
+    |> Enum.sort_by( fn {u,r} -> !r.keys end )
     |> Enum.sort_by( fn {u,r} -> r.dir end )
   end
 
