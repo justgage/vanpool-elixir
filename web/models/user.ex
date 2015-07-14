@@ -7,14 +7,14 @@ defmodule Vanpool.User do
     field :avatar_url, :string
     field :real_name, :string
     field :slack_handle, :string
-    field :phone, :string
-    field :email, :string
+    field :phone, :string, default: ""
+    field :email, :string, default: ""
 
     timestamps
   end
 
-  @required_fields ~w(userid avatar_url real_name slack_handle phone email)
-  @optional_fields ~w()
+  @required_fields ~w(userid avatar_url slack_handle)
+  @optional_fields ~w(phone email real_name)
 
   @doc """
   Creates a changeset based on the `model` and `params`.
