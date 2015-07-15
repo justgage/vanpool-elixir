@@ -43,7 +43,7 @@ defmodule Vanpool.RidingController do
       "round" ->
         create_one(conn, %{"riding" => Map.put(riding_params, "dir", "in")})
         create_one(conn, %{"riding" => Map.put(riding_params, "dir", "out")})
-      x ->
+      _ ->
         create_one(conn, %{"riding" => riding_params})
     end
   end
