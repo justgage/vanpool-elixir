@@ -22,7 +22,7 @@ defmodule SlackOAuth2 do
 
   def authorize_url!(params \\ []) do
 
-    params = params ++ [team: "T028ZAGUD", scope: "identify"]
+    params = params ++ [team: "T028ZAGUD", scope: "identify,read"]
 
     new()
     |> OAuth2.Client.authorize_url!(params)
