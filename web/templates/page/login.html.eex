@@ -1,0 +1,7 @@
+<div class="text-center">
+  <h1>CARAVAN</h1>
+  <h3>Login with:</h3>
+  <a class="btn btn-lg btn-default" href="<%= auth_path(@conn, :index) %>">
+    <img src="<%= static_path(@conn, "/images/slack.png") %>" alt="Slack"/>
+  </a>
+</div>

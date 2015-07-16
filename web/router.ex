@@ -3,7 +3,15 @@ defmodule Vanpool.Router do
   require Logger
 
   pipeline :browser do
-    # plug :auth
+    plug :accepts, ["html"]
+    plug :fetch_session
+    plug :auth
+    plug :fetch_flash
+    plug :protect_from_forgery
+    plug :assign_env
+  end
+
+  pipeline :browser_unauth do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_flash
@@ -12,23 +20,41 @@ defmodule Vanpool.Router do
   end
 
   pipeline :api do
-    # plug :auth_api
     plug :fetch_session
     plug :accepts, ["json"]
+    plug :auth_api
    end
 
-  def auth_api(conn, opts) do
-    Logger.warn opts
+  @doc """
+  This will make sure the right sesson stuff is set
+  """
+  defp check_auth(conn) do
+    user = get_session(conn, :current_user)
+    id = get_session(conn, :user_id)
+    token = get_session(conn, :access_token)
 
-    conn 
-    |> Plug.Conn.send_resp(400, %{data: "Sorry your not authenticated"})
-    |> halt
+    user != nil && id != nil && token != nil 
   end
-  def auth(conn, opts) do
-    Logger.warn opts
-    conn 
-    |> Plug.Conn.send_resp(400, "Sorry your not authed")
-    |> halt
+
+
+  def auth_api(conn, _opts) do
+    if check_auth(conn) do
+      conn 
+    else
+      conn
+      |> Plug.Conn.send_resp(400, "{\"error\": \"Sorry your not authed\"}")
+      |> halt
+    end
+  end
+
+  def auth(conn, _opts) do
+    if check_auth(conn) do
+      conn 
+    else
+      conn
+      |> Phoenix.Controller.redirect(to: "/auth/login")
+      |> halt
+    end
   end
 
 
@@ -44,6 +70,15 @@ defmodule Vanpool.Router do
     |> assign(:token,          get_session(conn, :token))
   end
 
+  scope "/auth", Vanpool do
+    pipe_through :browser_unauth # Use the default browser stack
+
+    get "/", AuthController, :index
+    get "/callback", AuthController, :callback
+    get "/logout", AuthController, :logout
+    get "/userid_login/:userid", AuthController, :login
+    get "/login",           PageController, :login
+  end
 
   scope "/", Vanpool do
     pipe_through :browser # Use the default browser stack
@@ -53,13 +88,6 @@ defmodule Vanpool.Router do
     resources "/vans", VanController
   end
 
-  scope "/auth", Vanpool  do
-    pipe_through :browser
-    get "/", AuthController, :index
-    get "/callback", AuthController, :callback
-    get "/logout", AuthController, :logout
-    get "/userid_login/:userid", AuthController, :login
-  end
 
   # Other scopes may use custom stacks.
   scope "/api", Vanpool do

@@ -10,7 +10,7 @@ config :vanpool, Vanpool.Endpoint,
   url: [host: "localhost"],
   root: Path.dirname(__DIR__),
   secret_key_base: "YzOdssl5NGwtF9InC4Cw2ds09jFdVpzom7RH1W4K5uvPnF9KaCrCs+swz54IMOZB",
-  render_errors: [default_format: "html"],
+  # render_errors: [default_format: "html"],
   pubsub: [name: Vanpool.PubSub,
            adapter: Phoenix.PubSub.PG2]
 

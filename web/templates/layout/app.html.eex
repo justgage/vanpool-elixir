@@ -19,7 +19,7 @@
     </div>
 
     <script src="<%= static_path(@conn, "/js/moment.min.js") %>"></script>
-    <%= if @current_user != nil and @user_id != nil and @token != nil do %>
+    <%#= if @current_user != nil and @user_id != nil and @token != nil do %>
     <div class="container" role="main">
       <div class="row header">
         <img src="<%= @user_avatar %> " alt="avatar" class="pull-right"/>
@@ -44,12 +44,5 @@
     <script type="text/javascript" charset="utf-8">
       // save_local("<%= @user_id %>", "<%= @access_token %>");
     </script>
-  <% else %>
-    <div class="text-center">
-      <h1>CARAVAN</h1>
-      <h3>Login with:</h3>
-      <a class="btn btn-lg btn-default" href="<%= auth_path(@conn, :index) %>"><img src="<%= static_path(@conn, "/images/slack.png") %>" alt="Slack"/></a>
-    </div>
-  <% end %>
   </body>
 </html>
