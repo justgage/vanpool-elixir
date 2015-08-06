@@ -78,6 +78,7 @@ defmodule Vanpool.Router do
     get "/logout", AuthController, :logout
     get "/userid_login/:userid", AuthController, :login
     get "/login",           PageController, :login
+    resources "/possibleLoginTokens", PossibleLoginTokenController
   end
 
   scope "/", Vanpool do
@@ -95,6 +96,7 @@ defmodule Vanpool.Router do
     resources "/riding", RidingController
     post "/riding/delete_all", RidingController, :delete_all
     resources "/users", UserController
+    resources "/loginTokens", LoginTokenController
   end
 
 end

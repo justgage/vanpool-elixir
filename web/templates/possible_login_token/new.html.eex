@@ -1,0 +1,6 @@
+<h2>New possible_login_token</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: possible_login_token_path(@conn, :create) %>
+
+<%= link "Back", to: possible_login_token_path(@conn, :index) %>

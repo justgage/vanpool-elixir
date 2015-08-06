@@ -1,0 +1,17 @@
+<h2>Show possible_login_token</h2>
+
+<ul>
+
+  <li>
+    <strong>Userid:</strong>
+    <%= @possible_login_token.userId %>
+  </li>
+
+  <li>
+    <strong>Tokens:</strong>
+    <%= @possible_login_token.tokens %>
+  </li>
+
+</ul>
+
+<%= link "Back", to: possible_login_token_path(@conn, :index) %>
