@@ -4,14 +4,12 @@
 
   <li>
     <strong>Userid:</strong>
-    <%= @possible_login_token.userId %>
+    <%#= @possible_login_token.userId %>
   </li>
 
   <li>
     <strong>Tokens:</strong>
-    <%= @possible_login_token.tokens %>
+    <%#= @possible_login_token.tokens %>
   </li>
 
 </ul>
-
-<%= link "Back", to: possible_login_token_path(@conn, :index) %>

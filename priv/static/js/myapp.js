@@ -1,3 +1,8 @@
+/***************************************
+ *
+ *  This is the JavaScript
+ *
+ **************************************/
 var check_in = function (van, dir, keys) {
   $("#sticky-bottom-bar").toggleClass("sticky-up", true);
   window.dir = dir;
@@ -72,3 +77,4 @@ function delete_all() {
     promise.done(function (data) { location.reload(); })
     promise.fail(function (data) { alert("Sorry there was an error on the server ⨂_⨂"); })
 }
+

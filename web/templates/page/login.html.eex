@@ -1,7 +1,17 @@
 <div class="text-center">
   <h1>CARAVAN</h1>
   <h3>Login with:</h3>
+  <%= if false do %>
   <a class="btn btn-lg btn-default" href="<%= auth_path(@conn, :index) %>">
     <img src="<%= static_path(@conn, "/images/slack.png") %>" alt="Slack"/>
   </a>
+  <% end %>
+  <form action="<%= possible_token_create_path() %>" method="post">
+    <div class="form-group">
+      <label for="slack_handle">Slack Handle:</label>
+      <input type="text" name="slack_handle" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+
 </div>
