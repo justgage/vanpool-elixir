@@ -61,6 +61,19 @@ function send_local_userid(user_id) {
 
 }
 
+function try_login(path) {
+    var token = localStorage.getItem("my-token");
+    if(token) {
+      login_with_token(path, localStorage.getItem("my-token"));
+    }
+}
+
+function login_with_token(path, token) {
+  var promise = $.post(path, info);
+  promise.done(function (data) { location.reload(); })
+  promise.fail(function (data) { alert("Sorry there was an error on the server ⨂_⨂"); })
+}
+
 function delete_all() {
      var info = {
        "riding" : {
