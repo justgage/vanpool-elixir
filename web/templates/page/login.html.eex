@@ -1,7 +1,22 @@
-<div class="text-center">
-  <h1>CARAVAN</h1>
-  <h3>Login with:</h3>
-  <a class="btn btn-lg btn-default" href="<%= auth_path(@conn, :index) %>">
-    <img src="<%= static_path(@conn, "/images/slack.png") %>" alt="Slack"/>
-  </a>
+<script type="text/javascript" charset="utf-8">
+  <script type="text/javascript" charset="utf-8">
+    try_login(<%="/"%>);
+  </script>
+  
+</script>
+<div class="">
+  <div class="text-center">
+    <h1>CARAVAN</h1>
+  </div>
+  <h3>Login with Slack</h3>
+  <div>
+    To login enter your slack username and we'll send you a token via a private message.
+  </div>
+  <form action="<%#= possible_token_create_path() %>" method="post">
+    <div class="form-group">
+      <label class="" for="slack_handle">Slack Handle:</label>
+      <input placeholder="eg: myusername" type="text" name="slack_handle" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Send Token</button>
+  </form>
 </div>

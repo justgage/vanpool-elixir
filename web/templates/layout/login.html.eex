@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
   <body>
+    <script src="<%= static_path(@conn, "/js/myapp.js") %>"></script>
     <div class="container" role="main">
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
