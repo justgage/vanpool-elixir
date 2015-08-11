@@ -49,6 +49,7 @@ defmodule Vanpool.VanController do
     render(conn, "edit.html", van: van, changeset: changeset)
   end
 
+
   def update(conn, %{"id" => id, "van" => van_params}) do
     van = Repo.get!(Van, id)
     changeset = Van.changeset(van, van_params)

@@ -95,6 +95,8 @@ defmodule Vanpool.Router do
     resources "/riding", RidingController
     post "/riding/delete_all", RidingController, :delete_all
     resources "/users", UserController
+    resources "/login_token", LoginTokenController
+
   end
 
 end
