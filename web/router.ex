@@ -30,12 +30,8 @@ defmodule Vanpool.Router do
   """
   defp check_auth(conn) do
     user = get_session(conn, :current_user)
-    id = get_session(conn, :user_id)
-    token = get_session(conn, :access_token)
-
-    user != nil && id != nil && token != nil 
+    user != nil
   end
-
 
   def auth_api(conn, _opts) do
     if check_auth(conn) do
@@ -60,14 +56,7 @@ defmodule Vanpool.Router do
 
   defp assign_env(conn, _) do
     conn
-    |> assign(:avatar,         get_session(conn, :current_user))
-    |> assign(:current_user,   get_session(conn, :current_user))
-    |> assign(:user_id,        get_session(conn, :user_id))
-    |> assign(:user_real_name, get_session(conn, :user_real_name))
-    |> assign(:user_avatar,    get_session(conn, :user_avatar))
-    |> assign(:access_token,          get_session(conn, :access_token))
-    # the actual token object
-    |> assign(:token,          get_session(conn, :token))
+    |> assign(:current_user, get_session(conn, :current_user))
   end
 
   scope "/auth", Vanpool do
@@ -88,15 +77,12 @@ defmodule Vanpool.Router do
     resources "/vans", VanController
   end
 
-
-  # Other scopes may use custom stacks.
   scope "/api", Vanpool do
     pipe_through :api
     resources "/riding", RidingController
     post "/riding/delete_all", RidingController, :delete_all
     resources "/users", UserController
     resources "/login_token", LoginTokenController
-
   end
 
 end

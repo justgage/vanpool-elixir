@@ -16,7 +16,7 @@ defmodule Vanpool.LoginTokenController do
     else
       conn
       |> put_status(:unprocessable_entity)
-      |> render(Vanpool.ChangesetView, "error.json", changeset: changeset)
+      |> render(Vanpool.ChangesetView, "error.json", changeset: %{})
     end
   end
 
@@ -24,8 +24,16 @@ defmodule Vanpool.LoginTokenController do
     changeset = LoginToken.changeset(%LoginToken{}, login_token_params)
 
     if changeset.valid? do
-      login_token = Repo.insert!(changeset)
-      render(conn, "show.json", login_token: login_token)
+      login = Repo.insert!(changeset)
+
+      SlackBot.get!(
+        "chat.postMessage" <> SlackBot.message_fmt(
+        "xoxb-8174838756-ZWFTzUkosRvynjgRwzxbPGZ9",
+        login[:slackHandle], 
+        "Pssst: your secret code is: " <> login[:id]
+      ))
+
+      render(conn, "show.json", login_token: login)
     else
       conn
       |> put_status(:unprocessable_entity)

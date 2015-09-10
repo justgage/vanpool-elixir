@@ -15,8 +15,8 @@
   <form action="<%#= possible_token_create_path() %>" method="post">
     <div class="form-group">
       <label class="" for="slack_handle">Slack Handle:</label>
-      <input placeholder="eg: myusername" type="text" name="slack_handle" class="form-control" />
+      <input id="slack_handle" placeholder="eg: myusername" type="text" name="slack_handle" class="form-control" />
     </div>
-    <button type="submit" class="btn btn-primary">Send Token</button>
+    <button onClick="send_code()" type="" class="btn btn-primary">Send Token</button>
   </form>
 </div>

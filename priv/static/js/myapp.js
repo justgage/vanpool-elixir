@@ -1,3 +1,7 @@
+/**
+ * Check in code
+ *
+ */
 var check_in = function (van, dir, keys) {
   $("#sticky-bottom-bar").toggleClass("sticky-up", true);
   window.dir = dir;
@@ -11,7 +15,6 @@ var check_in_disable = function () {
 var check_in_key = function (keys) {
 
   keys = !!keys;
-
 
   var info = {
     "riding" : {
@@ -46,6 +49,22 @@ function clear_ride(date) {
   promise.fail(function (data) { alert("Sorry there was an error on the server ⨂_⨂"); })
 }
 
+function delete_all() {
+     var info = {
+       "riding" : {
+         "userid" : userid,
+         "date" : date,
+       },
+     };
+    var promise = $.post("/api/riding/delete_all", info);
+    promise.done(function (data) { location.reload(); })
+    promise.fail(function (data) { alert("Sorry there was an error on the server ⨂_⨂"); })
+}
+
+/**
+ * Local storage
+ */
+
 function save_local_userid(user_id) {
   localStorage.setItem("user_id", user_id);
 }
@@ -61,7 +80,7 @@ function send_local_userid(user_id) {
 
 }
 
-function try_login(path) {
+function try_local_storage_login(path) {
     var token = localStorage.getItem("my-token");
     if(token) {
       login_with_token(path, localStorage.getItem("my-token"));
@@ -74,14 +93,3 @@ function login_with_token(path, token) {
   promise.fail(function (data) { alert("Sorry there was an error on the server ⨂_⨂"); })
 }
 
-function delete_all() {
-     var info = {
-       "riding" : {
-         "userid" : userid,
-         "date" : date,
-       },
-     };
-    var promise = $.post("/api/riding/delete_all", info);
-    promise.done(function (data) { location.reload(); })
-    promise.fail(function (data) { alert("Sorry there was an error on the server ⨂_⨂"); })
-}
